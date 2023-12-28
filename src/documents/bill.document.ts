@@ -7,7 +7,11 @@ import {
   transformTypeEnvironment,
   transformTypeIdentification,
 } from "../mapping";
-import { mappingExtraInfo, parseNumberInObject } from "../utils";
+import {
+  mappingExtraInfo,
+  parseNumberInObject,
+  removeUnwantedProperties,
+} from "../utils";
 import { IDocument } from "./document.interface";
 
 export class BillDocument implements IDocument {
@@ -22,13 +26,17 @@ export class BillDocument implements IDocument {
       infoTributaria: this.transformInfoTax(factura.infoTributaria),
     };
 
-    // remove signature and $ attributes
-    delete newReceipt["ds:Signature"];
-    delete newReceipt["$"];
-    delete newReceipt["infoFactura"];
-    delete newReceipt["detalles"];
-    delete newReceipt.infoDocumento["pagos"];
-    delete newReceipt.infoDocumento["totalConImpuestos"];
+    // remove unwanted properties
+    removeUnwantedProperties(newReceipt, [
+      "ds:Signature",
+      "$",
+      "infoFactura",
+      "detalles",
+    ]);
+    removeUnwantedProperties(newReceipt.infoDocumento, [
+      "pagos",
+      "totalConImpuestos",
+    ]);
 
     return newReceipt;
   }

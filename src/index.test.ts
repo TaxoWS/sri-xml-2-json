@@ -20,6 +20,7 @@ describe("mylib", () => {
     //     infoDocumento: expect.any(Object),
     //   })
     // );
+    console.log(responseParsed);
     expect(responseParsed).toHaveProperty("infoTributaria");
   });
 });
