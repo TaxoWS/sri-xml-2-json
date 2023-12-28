@@ -6,8 +6,11 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "vitest",
-    "build": "tsup src/index.ts --format cjs,esm --dts --minify"
+    "test:watch": "vitest",
+    "test": "vitest run",
+    "build": "tsup src/index.ts --format cjs,esm --dts --minify",
+    "lint": "tsc",
+    "ci": "pnpm run lint && pnpm run test && pnpm run build"
   },
   "keywords": [],
   "author": "Cristhian Acurio",
