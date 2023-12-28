@@ -39,3 +39,32 @@ export const transformTypeIdentification: Record<string, string> = {
   "07": "VENTA A CONSUMIDOR FINAL",
   "08": "IDENTIFICACIÓN DEL EXTERIOR",
 };
+
+export const billPropertyMap = {
+  type: "tipo",
+  buyerIdType: "tipoIdentificacionCompradorNombre",
+  paymentInfo: "pago",
+  totalTaxInfo: "totalImpuestos",
+  paymentMethodName: "formaPagoNombre",
+  name: "nombre",
+  percentage: "porcentaje",
+  documentInfo: "infoDocumento",
+  products: "productos",
+  additionalInfo: "infoAdicional",
+  taxInfo: "infoTributaria",
+  taxes: "impuestos",
+};
+
+export const removePropertyMap = {
+  signature: "ds:Signature",
+  dollarSign: "$",
+  billInfo: "infoFactura",
+  details: "detalles",
+  payments: "pagos",
+  totalWithTaxes: "totalConImpuestos",
+};
+
+export const commonPropertyMap = {
+  environment: "ambiente",
+  typeEmission: "tipoEmision",
+};
