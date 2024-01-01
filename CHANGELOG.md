@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.3
+
+### Patch Changes
+
+- 85d32c5: feat: refactor bill parser
+
 ## 0.0.2
 
 ### Patch Changes
