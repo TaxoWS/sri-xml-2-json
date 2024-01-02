@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.4
+
+### Patch Changes
+
+- 556785d: support one product in bill
+
 ## 0.0.3
 
 ### Patch Changes
