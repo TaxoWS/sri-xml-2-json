@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.6
+
+### Patch Changes
+
+- 571699f: fix: no fill additional info when not is present in xml input
+
 ## 0.0.5
 
 ### Patch Changes
