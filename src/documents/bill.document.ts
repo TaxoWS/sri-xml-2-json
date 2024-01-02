@@ -18,7 +18,7 @@ import {
 import { IDocument } from "./document.interface";
 
 export class BillDocument implements IDocument {
-  public convertToJson(receipt: any): object {
+  public transform(receipt: any): object {
     const { factura } = receipt;
     // define transformations
     const transformations = {
@@ -74,16 +74,31 @@ export class BillDocument implements IDocument {
         transformPaymentMethod[paymentMethod],
     };
     // Transform tax information
-    const taxInfo = infoFactura.totalConImpuestos.totalImpuesto.map(
-      (item: any) => {
-        return {
-          ...item,
-          [billPropertyMap.name]: transformTaxesName[item.codigo],
-          [billPropertyMap.percentage]:
-            transformTaxesPercentage[item.codigoPorcentaje],
-        };
-      }
+    const isMultipleTax = Array.isArray(
+      infoFactura.totalConImpuestos.totalImpuesto
     );
+    const taxInfo = isMultipleTax
+      ? infoFactura.totalConImpuestos.totalImpuesto.map((item: any) => {
+          return {
+            ...item,
+            [billPropertyMap.name]: transformTaxesName[item.codigo],
+            [billPropertyMap.percentage]:
+              transformTaxesPercentage[item.codigoPorcentaje],
+          };
+        })
+      : [
+          {
+            ...infoFactura.totalConImpuestos.totalImpuesto,
+            [billPropertyMap.name]:
+              transformTaxesName[
+                infoFactura.totalConImpuestos.totalImpuesto.codigo
+              ],
+            [billPropertyMap.percentage]:
+              transformTaxesPercentage[
+                infoFactura.totalConImpuestos.totalImpuesto.codigoPorcentaje
+              ],
+          },
+        ];
     return {
       [billPropertyMap.type]: DocumentTypeEnum.BILL,
       ...parsedNumberOfBill,
@@ -94,8 +109,12 @@ export class BillDocument implements IDocument {
   }
 
   private transformProducts(bill: any): object[] {
-    const { detalle } = bill.detalles;
+    const detalle = Array.isArray(bill.detalles.detalle)
+      ? bill.detalles.detalle
+      : [bill.detalles.detalle];
+
     // map products
+
     return detalle.map((item: any) => {
       const { impuesto } = item.impuestos;
       // Parse numbers in the item
