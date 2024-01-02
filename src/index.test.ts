@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { Ride } from "./index";
 import { fixtures } from "./fixtures";
 
-describe("mylib", () => {
+describe("sri-xml-2-json", () => {
   it("should be return error when input no is valid ride", async () => {
     const ride = new Ride(`<hola>hola</hola>`);
     await expect(ride.convertToJson()).rejects.toThrow(
@@ -33,8 +33,6 @@ describe("mylib", () => {
     const result = await ride.convertToJson();
     const responseParsed = JSON.parse(result);
 
-    console.dir(responseParsed, { depth: null });
-
     expect(responseParsed).toHaveProperty("infoAdicional");
     expect(responseParsed.infoAdicional).toEqual([
       {
@@ -42,6 +40,15 @@ describe("mylib", () => {
         valor: "kfc@kfc.com.ec",
       },
     ]);
+
+    expect(typeof result).toBe("string");
+  });
+  it("should be return json without infoAditional when infoAdicional input isn't present ", async () => {
+    const ride = new Ride(fixtures.BILL_ADITIONAL_FIELDS_2);
+    const result = await ride.convertToJson();
+    const responseParsed = JSON.parse(result);
+
+    expect(responseParsed).not.toHaveProperty("infoAdicional");
 
     expect(typeof result).toBe("string");
   });

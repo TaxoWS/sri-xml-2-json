@@ -17,6 +17,13 @@ export const parseNumberInObject = (obj: any) => {
 };
 
 export const mappingExtraInfo = (receipt: any) => {
+  if (
+    !receipt.factura.infoAdicional ||
+    !receipt.factura.infoAdicional.campoAdicional
+  ) {
+    return undefined;
+  }
+
   const campoAdicional = Array.isArray(
     receipt.factura.infoAdicional.campoAdicional
   )
