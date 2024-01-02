@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.5
+
+### Patch Changes
+
+- d7efd0f: fix: support additional info input as object
+
 ## 0.0.4
 
 ### Patch Changes
