@@ -25,16 +25,16 @@ export class Ride {
    */
   public async convertToJson(): Promise<string> {
     try {
+      // parse xml to json
       const parser = new xml2js.Parser({ explicitArray: false });
       const result = await parser.parseStringPromise(this.xml);
-
       const { Authorization } = result;
       const xmlReceipt = Authorization!.comprobante!;
-
       const jsonReceipt = await parser.parseStringPromise(xmlReceipt);
-
+      // get instance of document
       const document: IDocument = instanceDocument(jsonReceipt);
-      const response = document.convertToJson(jsonReceipt);
+      // transform schema
+      const response = document.transform(jsonReceipt);
       return JSON.stringify(response);
     } catch (error) {
       console.log(error);

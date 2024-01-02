@@ -1,3 +1,3 @@
 export interface IDocument {
-  convertToJson(xml: string): object;
+  transform(xml: string): object;
 }
