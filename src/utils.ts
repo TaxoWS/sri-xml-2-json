@@ -17,15 +17,18 @@ export const parseNumberInObject = (obj: any) => {
 };
 
 export const mappingExtraInfo = (receipt: any) => {
-  const result = receipt.factura.infoAdicional.campoAdicional.map(
-    (item: any) => {
-      const newItem = {
-        nombre: item.$.nombre,
-        valor: item._,
-      };
-      return parseNumberInObject(newItem);
-    }
-  );
+  const campoAdicional = Array.isArray(
+    receipt.factura.infoAdicional.campoAdicional
+  )
+    ? receipt.factura.infoAdicional.campoAdicional
+    : [receipt.factura.infoAdicional.campoAdicional];
+  const result = campoAdicional.map((item: any) => {
+    const newItem = {
+      nombre: item.$.nombre,
+      valor: item._,
+    };
+    return parseNumberInObject(newItem);
+  });
   return result;
 };
 
