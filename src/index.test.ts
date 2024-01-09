@@ -60,7 +60,6 @@ describe("sri-xml-2-json", () => {
       const ride = new Ride(fixtures.CREDIT_NOTE);
 
       const result = await ride.convertToJson();
-      console.dir(JSON.parse(result), { depth: null });
       const responseParsed = JSON.parse(result);
       expect(responseParsed).not.toHaveProperty("infoAdicional");
       expect(responseParsed).toHaveProperty("infoTributaria");
