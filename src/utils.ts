@@ -1,3 +1,12 @@
+import {
+  billPropertyMap,
+  commonPropertyMap,
+  transformTaxesName,
+  transformTaxesPercentage,
+  transformTypeEmission,
+  transformTypeEnvironment,
+} from "./mapping";
+
 const FORMAT_NUMERIC_EXPECT = /^(0\.\d+|[1-9]\d*(\.\d+)?)$/;
 
 export const parseNumberInObject = (obj: any) => {
@@ -43,4 +52,66 @@ export const removeUnwantedProperties = (object: any, properties: string[]) => {
   properties.forEach((property) => {
     delete object[property];
   });
+};
+
+export const mappingProducts = (details: any) => {
+  const detalle = Array.isArray(details.detalle)
+    ? details.detalle
+    : [details.detalle];
+
+  // map products
+
+  return detalle.map((item: any) => {
+    const { impuesto } = item.impuestos;
+    // Parse numbers in the item
+    const parsedItem = parseNumberInObject(item);
+    // Transform tax information
+    const taxInfo = {
+      ...impuesto,
+      [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
+      [billPropertyMap.percentage]:
+        transformTaxesPercentage[impuesto.codigoPorcentaje],
+    };
+
+    return {
+      ...item,
+      ...parsedItem,
+      [billPropertyMap.taxes]: taxInfo,
+    };
+  });
+};
+
+export const mapTaxInfo = (totalWithTaxes: any) => {
+  const isMultipleTax = Array.isArray(totalWithTaxes.totalImpuesto);
+  const taxInfo = isMultipleTax
+    ? totalWithTaxes.totalImpuesto.map((item: any) => {
+        return {
+          ...item,
+          [billPropertyMap.name]: transformTaxesName[item.codigo],
+          [billPropertyMap.percentage]:
+            transformTaxesPercentage[item.codigoPorcentaje],
+        };
+      })
+    : [
+        {
+          ...totalWithTaxes.totalImpuesto,
+          [billPropertyMap.name]:
+            transformTaxesName[totalWithTaxes.totalImpuesto.codigo],
+          [billPropertyMap.percentage]:
+            transformTaxesPercentage[
+              totalWithTaxes.totalImpuesto.codigoPorcentaje
+            ],
+        },
+      ];
+
+  return taxInfo;
+};
+
+export const mappingInfoTax = (infoTributaria: any) => {
+  const { ambiente, tipoEmision } = infoTributaria;
+  return {
+    ...infoTributaria,
+    [commonPropertyMap.environment]: transformTypeEnvironment[ambiente],
+    [commonPropertyMap.typeEmission]: transformTypeEmission[tipoEmision],
+  };
 };

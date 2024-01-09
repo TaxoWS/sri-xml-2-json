@@ -2,6 +2,7 @@ import xml2js from "xml2js";
 import { DocumentTypeEnum } from "./enums";
 import { BillDocument } from "./documents/bill.document";
 import { IDocument } from "./documents/document.interface";
+import { CreditNoteDocument } from "./documents/credit-note.document";
 
 interface IRide {}
 
@@ -37,7 +38,6 @@ export class Ride {
       const response = document.transform(jsonReceipt);
       return JSON.stringify(response);
     } catch (error) {
-      console.log(error);
       throw Error("Error converting xml to json");
     }
   }
@@ -47,6 +47,9 @@ const instanceDocument = (receipt: any): IDocument => {
   try {
     if (DocumentTypeEnum.BILL in receipt) {
       return new BillDocument();
+    }
+    if (DocumentTypeEnum.CREDIT_NOTE in receipt) {
+      return new CreditNoteDocument();
     }
     throw new Error("Document type not found");
   } catch (error) {

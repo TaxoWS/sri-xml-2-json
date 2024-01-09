@@ -55,6 +55,20 @@ export const billPropertyMap = {
   taxes: "impuestos",
 };
 
+export const creditNotePropertyMap = {
+  type: "tipo",
+  buyerIdType: "tipoIdentificacionCompradorNombre",
+  totalTaxInfo: "totalImpuestos",
+  paymentMethodName: "formaPagoNombre",
+  name: "nombre",
+  percentage: "porcentaje",
+  documentInfo: "infoDocumento",
+  products: "productos",
+  additionalInfo: "infoAdicional",
+  taxInfo: "infoTributaria",
+  taxes: "impuestos",
+};
+
 export const removePropertyMap = {
   signature: "ds:Signature",
   dollarSign: "$",
@@ -62,6 +76,7 @@ export const removePropertyMap = {
   details: "detalles",
   payments: "pagos",
   totalWithTaxes: "totalConImpuestos",
+  creditNoteInfo: "infoNotaCredito",
 };
 
 export const commonPropertyMap = {
