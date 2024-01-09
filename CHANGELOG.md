@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.7
+
+### Patch Changes
+
+- e67f26b: feat: support credit note
+
 ## 0.0.6
 
 ### Patch Changes
