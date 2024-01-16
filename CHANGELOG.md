@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.8
+
+### Patch Changes
+
+- c5e2428: docs: add readme
+
 ## 0.0.7
 
 ### Patch Changes
