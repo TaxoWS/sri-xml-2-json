@@ -3,6 +3,7 @@ import { DocumentTypeEnum } from "./enums";
 import { BillDocument } from "./documents/bill.document";
 import { IDocument } from "./documents/document.interface";
 import { CreditNoteDocument } from "./documents/credit-note.document";
+import { commonPropertyMap } from "./mapping";
 
 interface IRide {}
 
@@ -36,7 +37,12 @@ export class Ride {
       const document: IDocument = instanceDocument(jsonReceipt);
       // transform schema
       const response = document.transform(jsonReceipt);
-      return JSON.stringify(response);
+      const transformedResponse = {
+        ...response,
+        [commonPropertyMap.authorizationAt]: Authorization!.fechaAutorizacion,
+        [commonPropertyMap.authorizationStatus]: Authorization!.estado,
+      };
+      return JSON.stringify(transformedResponse);
     } catch (error) {
       throw Error("Error converting xml to json");
     }

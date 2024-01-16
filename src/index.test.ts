@@ -16,6 +16,8 @@ describe("sri-xml-2-json", () => {
       const jsonstring = await ride.convertToJson();
       const result = JSON.parse(jsonstring);
       expect(result).toHaveProperty("infoDocumento");
+      expect(result).toHaveProperty("fechaAutorizacion");
+      expect(result).toHaveProperty("estado");
     });
 
     it("should be retun a json response", async () => {
@@ -34,8 +36,10 @@ describe("sri-xml-2-json", () => {
     });
     it("should be return a json when bill contain one product", async () => {
       const ride = new Ride(fixtures.BILL_ONE_PRODUCT);
-      const result = await ride.convertToJson();
-      expect(typeof result).toBe("string");
+      const jsonString = await ride.convertToJson();
+      const result = JSON.parse(jsonString);
+      expect(result).toHaveProperty("productos");
+      expect(result.productos).toHaveLength(1);
     });
     it("should be return json with infoAditional when infoAdicional input is an object ", async () => {
       const ride = new Ride(fixtures.BILL_ADITIONAL_FIELDS);
@@ -72,6 +76,8 @@ describe("sri-xml-2-json", () => {
       expect(responseParsed).toHaveProperty("infoTributaria");
       expect(responseParsed).toHaveProperty("infoDocumento");
       expect(responseParsed).toHaveProperty("productos");
+      expect(responseParsed).toHaveProperty("fechaAutorizacion");
+      expect(responseParsed).toHaveProperty("estado");
     });
   });
 });

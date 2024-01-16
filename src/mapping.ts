@@ -82,4 +82,6 @@ export const removePropertyMap = {
 export const commonPropertyMap = {
   environment: "ambiente",
   typeEmission: "tipoEmision",
+  authorizationAt: "fechaAutorizacion",
+  authorizationStatus: "estado",
 };
