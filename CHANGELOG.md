@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.9
+
+### Patch Changes
+
+- 939ce68: feat: mapping authorizationAt and status fields
+
 ## 0.0.8
 
 ### Patch Changes
