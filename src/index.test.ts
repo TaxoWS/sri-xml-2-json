@@ -10,6 +10,14 @@ describe("sri-xml-2-json", () => {
         "Error converting xml to json"
       );
     });
+
+    it("bill with tax error", async () => {
+      const ride = new Ride(fixtures.BILL_WITH_TAX_ERROR);
+      const jsonstring = await ride.convertToJson();
+      const result = JSON.parse(jsonstring);
+      expect(result).toHaveProperty("infoDocumento");
+    });
+
     it("should be retun a json response", async () => {
       const ride = new Ride(fixtures.BILL_MULTIPLE_ITEMS);
       const result = await ride.convertToJson();
@@ -23,7 +31,6 @@ describe("sri-xml-2-json", () => {
       //   })
       // );
       expect(responseParsed).toHaveProperty("infoTributaria");
-      console.log(responseParsed);
     });
     it("should be return a json when bill contain one product", async () => {
       const ride = new Ride(fixtures.BILL_ONE_PRODUCT);
