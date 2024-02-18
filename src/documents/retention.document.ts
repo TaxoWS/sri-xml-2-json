@@ -5,9 +5,12 @@ import {
   transformTypeIdentification,
 } from "../mapping";
 import {
+  mappingExtraInfo,
+  mappingExtraInfoDocs,
   mappingTaxes,
   parseNumberInObject,
   removeUnwantedProperties,
+  transformTaxInfo,
 } from "../utils";
 import { IDocument } from "./document.interface";
 
@@ -16,6 +19,10 @@ export class RetentionDocument implements IDocument {
     const { comprobanteRetencion } = xml;
 
     const transformations = {
+      taxInfo: {
+        transform: transformTaxInfo,
+        dependsOn: comprobanteRetencion,
+      },
       documentInfo: {
         transform: this.transformDocumentInfo,
         dependsOn: comprobanteRetencion,
@@ -23,6 +30,14 @@ export class RetentionDocument implements IDocument {
       taxes: {
         transform: mappingTaxes,
         dependsOn: comprobanteRetencion.impuestos,
+      },
+      additionalInfo: {
+        transform: mappingExtraInfoDocs,
+        dependsOn: comprobanteRetencion,
+      },
+      supportingDocument: {
+        transform: this.transformSupportingDocument,
+        dependsOn: comprobanteRetencion,
       },
     };
     const newReceipt = { ...comprobanteRetencion };
@@ -40,7 +55,7 @@ export class RetentionDocument implements IDocument {
       removePropertyMap.retentionInfo,
     ]);
 
-    return newReceipt;
+    return parseNumberInObject(newReceipt);
   }
 
   private transformDocumentInfo(retention: any): object {
@@ -49,11 +64,35 @@ export class RetentionDocument implements IDocument {
       transformTypeIdentification[
         infoCompRetencion.tipoIdentificacionSujetoRetenido
       ];
-    const parsedNumberInInfoRetention = parseNumberInObject(infoCompRetencion);
+    //const parsedNumberInInfoRetention = parseNumberInObject(infoCompRetencion);
     return {
-      ...parsedNumberInInfoRetention,
+      //...parsedNumberInInfoRetention,
       [retentionPropertyMap.typeIdentificationSubjectRetained]: buyerType,
       [retentionPropertyMap.type]: DocumentTypeEnum.RETENTION,
+    };
+  }
+  private transformSupportingDocument(retention: any) {
+    if (!retention.docsSustento) return undefined;
+
+    const { docSustento } = retention.docsSustento;
+    const { retenciones, pagos, impuestosDocSustento } = docSustento;
+
+    const retencions = Array.isArray(retenciones.retencion)
+      ? retenciones.retencion
+      : [retenciones.retencion];
+
+    const payments = Array.isArray(pagos.pago) ? pagos.pago : [pagos.pago];
+
+    const taxesDocSupport = Array.isArray(
+      impuestosDocSustento.impuestoDocSustento
+    )
+      ? impuestosDocSustento.impuestoDocSustento
+      : [impuestosDocSustento.impuestoDocSustento];
+    return {
+      ...docSustento,
+      [retentionPropertyMap.retentions]: retencions,
+      [retentionPropertyMap.payments]: payments,
+      [retentionPropertyMap.taxesDocSupported]: taxesDocSupport,
     };
   }
 }

@@ -91,5 +91,14 @@ describe("sri-xml-2-json", () => {
       expect(responseParsed).toHaveProperty("fechaAutorizacion");
       expect(responseParsed).toHaveProperty("estado");
     });
+    it("should convert retencion document with additional fields and supporting docs ", async () => {
+      const ride = new Ride(
+        fixtures.RETENTION_WITH_SUPPORTING_AND_ADDITIONAL_FIELDS
+      );
+      const result = await ride.convertToJson();
+      const responseParsed = JSON.parse(result);
+      expect(responseParsed).toHaveProperty("infoAdicional");
+      expect(responseParsed).toHaveProperty("docsSustento");
+    });
   });
 });

@@ -72,8 +72,13 @@ export const retentionPropertyMap = {
   type: "tipo",
   taxes: "impuestos",
   documentInfo: "infoDocumento",
-  infoTributaria: "infoTributaria",
+  taxInfo: "infoTributaria",
   typeIdentificationSubjectRetained: "tipoIdentificacionSujetoRetenidoNombre",
+  additionalInfo: "infoAdicional",
+  retentions: "retenciones",
+  payments: "pagos",
+  taxesDocSupported: "impuestosDocSustento",
+  supportingDocument: "docsSustento",
 };
 
 export const removePropertyMap = {

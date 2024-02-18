@@ -1,3 +1,4 @@
+import { an } from "vitest/dist/reporters-O4LBziQ_";
 import {
   billPropertyMap,
   commonPropertyMap,
@@ -48,6 +49,23 @@ export const mappingExtraInfo = (receipt: any) => {
   });
   return result;
 };
+export const mappingExtraInfoDocs = (receipt: any) => {
+  if (!receipt.infoAdicional || !receipt.infoAdicional.campoAdicional) {
+    return undefined;
+  }
+
+  const campoAdicional = Array.isArray(receipt.infoAdicional.campoAdicional)
+    ? receipt.infoAdicional.campoAdicional
+    : [receipt.infoAdicional.campoAdicional];
+  const result = campoAdicional.map((item: any) => {
+    const newItem = {
+      nombre: item.$.nombre,
+      valor: item._,
+    };
+    return parseNumberInObject(newItem);
+  });
+  return result;
+};
 
 export const removeUnwantedProperties = (object: any, properties: string[]) => {
   properties.forEach((property) => {
@@ -56,6 +74,9 @@ export const removeUnwantedProperties = (object: any, properties: string[]) => {
 };
 
 export const mappingTaxes = (taxes: any) => {
+  if (!taxes) {
+    return undefined;
+  }
   const multipleTax = Array.isArray(taxes) ? taxes : [taxes];
   const newTaxes = multipleTax.map((item: any) => {
     const { impuesto } = item;
@@ -124,6 +145,15 @@ export const mappingInfoTax = (infoTributaria: any) => {
   const { ambiente, tipoEmision } = infoTributaria;
   return {
     ...infoTributaria,
+    [commonPropertyMap.environment]: transformTypeEnvironment[ambiente],
+    [commonPropertyMap.typeEmission]: transformTypeEmission[tipoEmision],
+  };
+};
+
+export const transformTaxInfo = (receipt: any) => {
+  const { ambiente, tipoEmision } = receipt.infoTributaria;
+  return {
+    ...receipt.infoTributaria,
     [commonPropertyMap.environment]: transformTypeEnvironment[ambiente],
     [commonPropertyMap.typeEmission]: transformTypeEmission[tipoEmision],
   };
