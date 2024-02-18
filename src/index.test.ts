@@ -80,4 +80,16 @@ describe("sri-xml-2-json", () => {
       expect(responseParsed).toHaveProperty("estado");
     });
   });
+  describe("RETENTIONS", () => {
+    it("should convert retention document", async () => {
+      const ride = new Ride(fixtures.RETENTION);
+      const result = await ride.convertToJson();
+      const responseParsed = JSON.parse(result);
+      expect(responseParsed).toHaveProperty("infoTributaria");
+      expect(responseParsed).toHaveProperty("infoDocumento");
+      expect(responseParsed).toHaveProperty("impuestos");
+      expect(responseParsed).toHaveProperty("fechaAutorizacion");
+      expect(responseParsed).toHaveProperty("estado");
+    });
+  });
 });

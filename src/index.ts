@@ -4,6 +4,7 @@ import { BillDocument } from "./documents/bill.document";
 import { IDocument } from "./documents/document.interface";
 import { CreditNoteDocument } from "./documents/credit-note.document";
 import { commonPropertyMap } from "./mapping";
+import { RetentionDocument } from "./documents/retention.document";
 
 interface IRide {}
 
@@ -56,6 +57,9 @@ const instanceDocument = (receipt: any): IDocument => {
     }
     if (DocumentTypeEnum.CREDIT_NOTE in receipt) {
       return new CreditNoteDocument();
+    }
+    if (DocumentTypeEnum.RETENTION in receipt) {
+      return new RetentionDocument();
     }
     throw new Error("Document type not found");
   } catch (error) {

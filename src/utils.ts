@@ -1,6 +1,7 @@
 import {
   billPropertyMap,
   commonPropertyMap,
+  retentionPropertyMap,
   transformTaxesName,
   transformTaxesPercentage,
   transformTypeEmission,
@@ -52,6 +53,18 @@ export const removeUnwantedProperties = (object: any, properties: string[]) => {
   properties.forEach((property) => {
     delete object[property];
   });
+};
+
+export const mappingTaxes = (taxes: any) => {
+  const multipleTax = Array.isArray(taxes) ? taxes : [taxes];
+  const newTaxes = multipleTax.map((item: any) => {
+    const { impuesto } = item;
+    return parseNumberInObject({
+      ...impuesto,
+      [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
+    });
+  });
+  return newTaxes;
 };
 
 export const mappingProducts = (details: any) => {

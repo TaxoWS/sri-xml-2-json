@@ -68,6 +68,13 @@ export const creditNotePropertyMap = {
   taxInfo: "infoTributaria",
   taxes: "impuestos",
 };
+export const retentionPropertyMap = {
+  type: "tipo",
+  taxes: "impuestos",
+  documentInfo: "infoDocumento",
+  infoTributaria: "infoTributaria",
+  typeIdentificationSubjectRetained: "tipoIdentificacionSujetoRetenidoNombre",
+};
 
 export const removePropertyMap = {
   signature: "ds:Signature",
@@ -77,6 +84,7 @@ export const removePropertyMap = {
   payments: "pagos",
   totalWithTaxes: "totalConImpuestos",
   creditNoteInfo: "infoNotaCredito",
+  retentionInfo: "infoCompRetencion",
 };
 
 export const commonPropertyMap = {
