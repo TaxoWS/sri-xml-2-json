@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.10
+
+### Patch Changes
+
+- 68a2ace: support retention received
+
 ## 0.0.9
 
 ### Patch Changes
