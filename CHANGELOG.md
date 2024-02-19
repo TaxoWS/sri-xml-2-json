@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.11
+
+### Patch Changes
+
+- d0f4e0f: fix: retention
+
 ## 0.0.10
 
 ### Patch Changes
