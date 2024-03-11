@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.12
+
+### Patch Changes
+
+- 2750c54: fix: retention parser
+
 ## 0.0.11
 
 ### Patch Changes
