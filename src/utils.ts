@@ -77,13 +77,14 @@ export const mappingTaxes = (taxes: any) => {
   if (!taxes) {
     return undefined;
   }
-  const multipleTax = Array.isArray(taxes) ? taxes : [taxes];
-  const newTaxes = multipleTax.map((item: any) => {
-    const { impuesto } = item;
-    return parseNumberInObject({
-      ...impuesto,
-      [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
-    });
+  const taxItems = Array.isArray(taxes.impuesto)
+    ? taxes.impuesto
+    : [taxes.impuesto];
+  const newTaxes = taxItems.map((item: any) => {
+    const newItem = {
+      ...parseNumberInObject(item),
+    };
+    return newItem;
   });
   return newTaxes;
 };

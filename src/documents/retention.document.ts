@@ -64,9 +64,8 @@ export class RetentionDocument implements IDocument {
       transformTypeIdentification[
         infoCompRetencion.tipoIdentificacionSujetoRetenido
       ];
-    //const parsedNumberInInfoRetention = parseNumberInObject(infoCompRetencion);
     return {
-      //...parsedNumberInInfoRetention,
+      ...infoCompRetencion,
       [retentionPropertyMap.typeIdentificationSubjectRetained]: buyerType,
       [retentionPropertyMap.type]: DocumentTypeEnum.RETENTION,
     };
