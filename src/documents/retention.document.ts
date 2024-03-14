@@ -55,7 +55,7 @@ export class RetentionDocument implements IDocument {
       removePropertyMap.retentionInfo,
     ]);
 
-    return parseNumberInObject(newReceipt);
+    return newReceipt;
   }
 
   private transformDocumentInfo(retention: any): object {
@@ -87,11 +87,11 @@ export class RetentionDocument implements IDocument {
     )
       ? impuestosDocSustento.impuestoDocSustento
       : [impuestosDocSustento.impuestoDocSustento];
-    return {
+    return parseNumberInObject({
       ...docSustento,
       [retentionPropertyMap.retentions]: retencions,
       [retentionPropertyMap.payments]: payments,
       [retentionPropertyMap.taxesDocSupported]: taxesDocSupport,
-    };
+    });
   }
 }
