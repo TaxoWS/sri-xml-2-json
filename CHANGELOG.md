@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 0.0.13
+
+### Patch Changes
+
+- f1517de: fix parser
+
 ## 0.0.12
 
 ### Patch Changes
