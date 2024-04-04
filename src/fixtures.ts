@@ -802,4 +802,99 @@ uEwy0vada7UsGyObkJC5pQ05ANAMh0d8qMFZFw==
 </comprobante>
 <mensajes></mensajes>
 </Authorization>`,
+  BILL_WITHOUT_PAYMENTS: `<Authorization>
+  <estado>AUTORIZADO</estado>
+  <numeroAutorizacion>0103202401019000624700120040010001288770190006219</numeroAutorizacion>
+  <fechaAutorizacion>2024-03-01T21:11:48-05:00</fechaAutorizacion>
+  <ambiente>PRODUCCIÓN</ambiente>
+  <comprobante>
+      <![CDATA[
+      <?xml version="1.0" encoding="UTF-8" standalone="yes"?><factura id="comprobante" version="1.1.0"><infoTributaria><ambiente>2</ambiente><tipoEmision>1</tipoEmision><razonSocial>ASOCIACION MUTUALISTA DE AHORRO Y CREDITO PARA LA VIVIENDA AZUAY</razonSocial><nombreComercial>MUTUALISTA AZUAY</nombreComercial><ruc>0190006247001</ruc><claveAcceso>0103202401019000624700120040010001288770190006219</claveAcceso><codDoc>01</codDoc><estab>004</estab><ptoEmi>001</ptoEmi><secuencial>000128877</secuencial><dirMatriz>Cuenca, Hermano Miguel 9-19 y Bolivar</dirMatriz></infoTributaria><infoFactura><fechaEmision>01/03/2024</fechaEmision><dirEstablecimiento>AV. DE LAS AMÉRICAS Y CAMINO DEL TEJAR</dirEstablecimiento><contribuyenteEspecial>3257</contribuyenteEspecial><obligadoContabilidad>SI</obligadoContabilidad><tipoIdentificacionComprador>05</tipoIdentificacionComprador><razonSocialComprador>AYORA BRITO LOURDES PATRICIA</razonSocialComprador><identificacionComprador>0927632273</identificacionComprador><direccionComprador>AV. 12 DE ABRIL 1-23 Y HERRERIAS</direccionComprador><totalSinImpuestos>0.36</totalSinImpuestos><totalDescuento>0.00</totalDescuento><totalConImpuestos><totalImpuesto><codigo>2</codigo><codigoPorcentaje>2</codigoPorcentaje><baseImponible>0.36</baseImponible><tarifa>12</tarifa><valor>0.04</valor></totalImpuesto>
+  </totalConImpuestos><propina>0.00</propina><importeTotal>0.40</importeTotal><moneda>DOLAR</moneda></infoFactura><detalles><detalle><codigoPrincipal>9039</codigoPrincipal><codigoAuxiliar>3301</codigoAuxiliar><descripcion>COSTO.TRANSF.SPI M.A.VIRTUAL</descripcion><cantidad>1.00</cantidad><precioUnitario>0.36</precioUnitario><descuento>0.00</descuento><precioTotalSinImpuesto>0.36</precioTotalSinImpuesto><impuestos><impuesto><codigo>2</codigo><codigoPorcentaje>2</codigoPorcentaje><tarifa>12</tarifa><baseImponible>0.36</baseImponible><valor>0.04</valor></impuesto>
+    </impuestos>
+  </detalle>
+</detalles><infoAdicional><campoAdicional nombre="telefono">4096449</campoAdicional><campoAdicional nombre="celular">0979014899</campoAdicional><campoAdicional nombre="email">DGALIAPERU@HOTMAIL.COM</campoAdicional></infoAdicional><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-221546281"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#comprobante"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+    </ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>tbcH0MgIVhljsW4CybIeY0nv9LM=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProperties-42219498"><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>gW29FziCG7wdGCJ8o42jH5RaQ9w=</ds:DigestValue></ds:Reference>
+</ds:SignedInfo><ds:SignatureValue>
+Ju3TkMBSHAyIWe3NCEu6Lav3+g68CjpR9HycrVkGowyvxw6E4Gy3EixN4jfI4gZC
+QoJYaQkMORm/j7ZWPoUz5YaLCkNeA/OuaXGHCRfcq0VyqZ7H0XLAEDzuLMYIxKaj
+UjXLm4tTk0CiISpsTf+q66R1OT8TlrZ+ZWn867DmbrHGyciUZNplwjF4zQ31VQCQ
+ctyGsMiHGqBq7wxyYd8PmTeobdn7ipEQzgwwkHN+Ep7g7jn+oWZKJSgMfG9qEfAP
+dL5xTb+oY6tgMTGcbcmVNp54LdZfqn85f4ky2qSUsBbGg6vrtdrXaCVQ6Nr9WLfw
+Vu+IidQ8XLRashszOzEbyw==
+</ds:SignatureValue><ds:KeyInfo><ds:KeyValue><ds:RSAKeyValue><ds:Modulus>
+x3n37HYK0wb4PtGEUuUN4Gv2ZID0XcCLZJtXv8uUsIkhCgXVxsL6YxLvG9OjNBoV
+Lj4513Php3xjbfMktiEOxGc1gcEggQoWygRPIA0CEeKMH2rDa+KHvUXKUPzqwF9/
+SkPWyw78ZBJz/Ul8SDQn7C7le6WFZz8l+rAqVQkfuUn5i3n7rEW/nsDP/YQwuk0b
+RP8gmItXqS8wnsxNkqe/gCH3wjRNpASvzDDPV2tbiGRC/6m8x+9PbPN6t7RQ7dAo
+va12ZdOov1NYtmvh1lHBaq7ijQSAeJUdtVLqSiWHREqTuZsy6ofAHSa1RGAZ3S5O
+reGLaOCK98J2gbPUBJbItQ==
+      </ds:Modulus><ds:Exponent>AQAB</ds:Exponent></ds:RSAKeyValue>
+  </ds:KeyValue><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=AC BANCO CENTRAL DEL ECUADOR, L=QUITO, OU=ENTIDAD DE CERTIFICACION DE INFORMACION-ECIBCE, O=BANCO CENTRAL DEL ECUADOR, C=EC</ds:X509IssuerName><ds:X509SerialNumber>1534019208</ds:X509SerialNumber></ds:X509IssuerSerial><ds:X509SubjectName>CN=MARIA GABRIELA MENDIETA GUERRERO, 2.5.4.5=0000326790, L=QUITO, OU=ENTIDAD DE CERTIFICACION DE INFORMACION-ECIBCE, O=BANCO CENTRAL DEL ECUADOR, C=EC</ds:X509SubjectName><ds:X509Certificate>
+MIIKJzCCCA+gAwIBAgIEW29GiDANBgkqhkiG9w0BAQsFADCBoTELMAkGA1UEBhMC
+RUMxIjAgBgNVBAoTGUJBTkNPIENFTlRSQUwgREVMIEVDVUFET1IxNzA1BgNVBAsT
+LkVOVElEQUQgREUgQ0VSVElGSUNBQ0lPTiBERSBJTkZPUk1BQ0lPTi1FQ0lCQ0Ux
+DjAMBgNVBAcTBVFVSVRPMSUwIwYDVQQDExxBQyBCQU5DTyBDRU5UUkFMIERFTCBF
+Q1VBRE9SMB4XDTIyMTAyNjE0MDcwNVoXDTI0MTAyNjE0MzcwNVowgbgxCzAJBgNV
+BAYTAkVDMSIwIAYDVQQKExlCQU5DTyBDRU5UUkFMIERFTCBFQ1VBRE9SMTcwNQYD
+VQQLEy5FTlRJREFEIERFIENFUlRJRklDQUNJT04gREUgSU5GT1JNQUNJT04tRUNJ
+QkNFMQ4wDAYDVQQHEwVRVUlUTzE8MBEGA1UEBRMKMDAwMDMyNjc5MDAnBgNVBAMT
+IE1BUklBIEdBQlJJRUxBIE1FTkRJRVRBIEdVRVJSRVJPMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAx3n37HYK0wb4PtGEUuUN4Gv2ZID0XcCLZJtXv8uU
+sIkhCgXVxsL6YxLvG9OjNBoVLj4513Php3xjbfMktiEOxGc1gcEggQoWygRPIA0C
+EeKMH2rDa+KHvUXKUPzqwF9/SkPWyw78ZBJz/Ul8SDQn7C7le6WFZz8l+rAqVQkf
+uUn5i3n7rEW/nsDP/YQwuk0bRP8gmItXqS8wnsxNkqe/gCH3wjRNpASvzDDPV2tb
+iGRC/6m8x+9PbPN6t7RQ7dAova12ZdOov1NYtmvh1lHBaq7ijQSAeJUdtVLqSiWH
+REqTuZsy6ofAHSa1RGAZ3S5OreGLaOCK98J2gbPUBJbItQIDAQABo4IFTDCCBUgw
+CwYDVR0PBAQDAgeAMGcGA1UdIARgMF4wXAYLKwYBBAGCqDsCAgEwTTBLBggrBgEF
+BQcCARY/aHR0cDovL3d3dy5lY2kuYmNlLmVjL3BvbGl0aWNhLWNlcnRpZmljYWRv
+L3BlcnNvbmEtanVyaWRpY2EucGRmMIGRBggrBgEFBQcBAQSBhDCBgTA+BggrBgEF
+BQcwAYYyaHR0cDovL29jc3AuZWNpLmJjZS5lYy9lamJjYS9wdWJsaWN3ZWIvc3Rh
+dHVzL29jc3AwPwYIKwYBBQUHMAGGM2h0dHA6Ly9vY3NwMS5lY2kuYmNlLmVjL2Vq
+YmNhL3B1YmxpY3dlYi9zdGF0dXMvb2NzcDBQBgorBgEEAYKoOwMKBEITQEFTT0NJ
+QUNJT04gTVVUVUFMSVNUQSBERSBBSE9SUk8gWSBDUkVESVRPIFBBUkEgTEEgVklW
+SUVOREEgQVpVQVkwHQYKKwYBBAGCqDsDCwQPEw0wMTkwMDA2MjQ3MDAxMBoGCisG
+AQQBgqg7AwEEDBMKMDEwNTY4MTczODAeBgorBgEEAYKoOwMCBBATDk1BUklBIEdB
+QlJJRUxBMBgGCisGAQQBgqg7AwMEChMITUVORElFVEEwGAYKKwYBBAGCqDsDBAQK
+EwhHVUVSUkVSTzAkBgorBgEEAYKoOwMFBBYTFEFTSVNURU5URSBGSU5BTkNJRVJP
+MCwGCisGAQQBgqg7AwcEHhMcSEVSTUFOTyBNSUdVRUwgWSBCT0xJVkFSIEVTUTAZ
+BgorBgEEAYKoOwMIBAsTCTA3NTAwNTA1MDAWBgorBgEEAYKoOwMJBAgTBkN1ZW5j
+YTAXBgorBgEEAYKoOwMMBAkTB0VDVUFET1IwIAYKKwYBBAGCqDsDMwQSExBTT0ZU
+V0FSRS1BUkNISVZPMCEGA1UdEQQaMBiBFm1tZW5kaWV0YUBtdXRhenVheS5jb20w
+ggHhBgNVHR8EggHYMIIB1DCCAdCgggHMoIIByIaB1mxkYXA6Ly9iY2VxbGRhcHN1
+YnAxLmJjZS5lYy9jbj1DUkwxNjAxLGNuPUFDJTIwQkFOQ08lMjBDRU5UUkFMJTIw
+REVMJTIwRUNVQURPUixsPVFVSVRPLG91PUVOVElEQUQlMjBERSUyMENFUlRJRklD
+QUNJT04lMjBERSUyMElORk9STUFDSU9OLUVDSUJDRSxvPUJBTkNPJTIwQ0VOVFJB
+TCUyMERFTCUyMEVDVUFET1IsYz1FQz9jZXJ0aWZpY2F0ZVJldm9jYXRpb25MaXN0
+P2Jhc2WGNGh0dHA6Ly93d3cuZWNpLmJjZS5lYy9DUkwvZWNpX2JjZV9lY19jcmxm
+aWxlY29tYi5jcmykgbYwgbMxCzAJBgNVBAYTAkVDMSIwIAYDVQQKExlCQU5DTyBD
+RU5UUkFMIERFTCBFQ1VBRE9SMTcwNQYDVQQLEy5FTlRJREFEIERFIENFUlRJRklD
+QUNJT04gREUgSU5GT1JNQUNJT04tRUNJQkNFMQ4wDAYDVQQHEwVRVUlUTzElMCMG
+A1UEAxMcQUMgQkFOQ08gQ0VOVFJBTCBERUwgRUNVQURPUjEQMA4GA1UEAxMHQ1JM
+MTYwMTArBgNVHRAEJDAigA8yMDIyMTAyNjE0MDcwNVqBDzIwMjQxMDI2MTQzNzA1
+WjAfBgNVHSMEGDAWgBRIot8jHx34LFF6jAPNSTKlCcGUqzAdBgNVHQ4EFgQUXgdS
+AOOt2J7YWgDtZq20OTx4FKkwCQYDVR0TBAIwADAZBgkqhkiG9n0HQQAEDDAKGwRW
+OC4xAwIEsDANBgkqhkiG9w0BAQsFAAOCAgEAj0t3Pd9fPoGyheyA5vYKDAkfMYZk
+WVMhg/r68MUMU2ll/aFr+79C1raCgqLVQurB88HA8RPAzgkXySNUw4yMMQWP8Zg4
+k0LgbtUZm1qVXQacWKa77rbpSHdQauzzP6P/x7dHPg+zjl0GTFfkyMAsddruyUOO
+0MhYo7srsxSC8S833eo3P2a6E6Jmf/YrgeiMjyDuiOJ5J89bcO8/7mA4Ej6HImCh
+XGrWKvQKGBAHK7j320nFfFKGa9f5QtOcHEKyIhfYLxwFKdD4/rtXWNJF+qJTb9Ha
+2eTSBeNUb97ocbstfx/F/eX6X/YToLXSw36nZJ9qzfhF5kX1iL1MM3pJlI1JfEJW
+3bDrpJBwyVPzV7HBd2mHZU5oGcNt26TjF4RcNzo4tGP2+LauO7wtIjMDdb7OERpH
+G+iu/8s6KEtH30jSVvbYZG5OxsQEX+6yHXXpNhARR/hcfXYsdM8ltac/3IZRtCaT
+PVtOphi4+MBNoESVW4rcgY4lxxqCQFcmIOIOOmFe/e2LqOmjfgQlgE0gYCYSVaA4
+ly+letlnO93q0QONfMcst2yvpQLKQN60lF7H4pWUqCWRrBq+ps3TWw2Jf4eSbW5s
+RJJ7iGulTwOZ6/6coCNOevIB5MEaZGJ9eezJfiDhdijrFaDu+UTCJhMFRCBB3//r
+hpgEd93qthJqous=
+    </ds:X509Certificate></ds:X509Data>
+</ds:KeyInfo><ds:Object><etsi:QualifyingProperties xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Target="#Signature-221546281"><etsi:SignedProperties Id="SignedProperties-42219498"><etsi:SignedSignatureProperties><etsi:SigningTime>2024-03-01T21:11:40.713Z</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>MSFvOPcmcf71/EjylztmeNPspao=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AC BANCO CENTRAL DEL ECUADOR, L=QUITO, OU=ENTIDAD DE CERTIFICACION DE INFORMACION-ECIBCE, O=BANCO CENTRAL DEL ECUADOR, C=EC</ds:X509IssuerName><ds:X509SerialNumber>1534019208</ds:X509SerialNumber></etsi:IssuerSerial>
+          </etsi:Cert>
+        </etsi:SigningCertificate>
+      </etsi:SignedSignatureProperties>
+    </etsi:SignedProperties>
+  </etsi:QualifyingProperties>
+</ds:Object></ds:Signature></factura>]]>
+</comprobante>
+<mensajes></mensajes>
+</Authorization>`,
 };

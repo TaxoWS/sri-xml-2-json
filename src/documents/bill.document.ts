@@ -66,10 +66,10 @@ export class BillDocument implements IDocument {
     // Transform buyer identification type
     const buyerIdType =
       transformTypeIdentification[infoFactura.tipoIdentificacionComprador];
-    const paymentMethod = infoFactura.pagos.pago.formaPago;
+    const paymentMethod = infoFactura.pagos?.pago?.formaPago;
     // Transform payment information
     const paymentInfo = {
-      ...infoFactura.pagos.pago,
+      ...infoFactura.pagos?.pago,
       [billPropertyMap.paymentMethodName]:
         transformPaymentMethod[paymentMethod],
     };

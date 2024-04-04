@@ -45,6 +45,7 @@ export class Ride {
       };
       return JSON.stringify(transformedResponse);
     } catch (error) {
+      console.error(error);
       throw Error("Error converting xml to json");
     }
   }
