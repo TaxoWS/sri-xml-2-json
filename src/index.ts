@@ -31,8 +31,12 @@ export class Ride {
       // parse xml to json
       const parser = new xml2js.Parser({ explicitArray: false });
       const result = await parser.parseStringPromise(this.xml);
-      const { Authorization } = result;
-      const xmlReceipt = Authorization!.comprobante!;
+
+      const { Authorization, autorizacion } = result;
+
+      const documentParser = Authorization ?? autorizacion;
+
+      const xmlReceipt = documentParser!.comprobante!;
       const jsonReceipt = await parser.parseStringPromise(xmlReceipt);
       // get instance of document
       const document: IDocument = instanceDocument(jsonReceipt);
@@ -40,8 +44,8 @@ export class Ride {
       const response = document.transform(jsonReceipt);
       const transformedResponse = {
         ...response,
-        [commonPropertyMap.authorizationAt]: Authorization!.fechaAutorizacion,
-        [commonPropertyMap.authorizationStatus]: Authorization!.estado,
+        [commonPropertyMap.authorizationAt]: documentParser!.fechaAutorizacion,
+        [commonPropertyMap.authorizationStatus]: documentParser!.estado,
       };
       return JSON.stringify(transformedResponse);
     } catch (error) {

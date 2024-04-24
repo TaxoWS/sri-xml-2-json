@@ -11,6 +11,14 @@ describe("sri-xml-2-json", () => {
       );
     });
 
+    it("should be return a json representation", async () => {
+      const ride = new Ride(fixtures.ORGINAL);
+      const result = await ride.convertToJson();
+      expect(typeof result).toBe("string");
+      const responseParsed = JSON.parse(result);
+      expect(responseParsed).toHaveProperty("infoTributaria");
+    });
+
     it("bill with tax error", async () => {
       const ride = new Ride(fixtures.BILL_WITH_TAX_ERROR);
       const jsonstring = await ride.convertToJson();
