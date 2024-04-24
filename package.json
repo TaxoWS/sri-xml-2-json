@@ -1,6 +1,6 @@
 {
   "name": "sri-xml-2-json",
-  "version": "0.0.14",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
