@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 1.0.0
+
+### Major Changes
+
+- 2f6279d: support original xml format
+
 ## 0.0.14
 
 ### Patch Changes
