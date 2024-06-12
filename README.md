@@ -9,9 +9,9 @@ $ npm install sri-xml-2-json
 ### Usage
 
 ```javascript
-import { RIDE } from "sri-xml-2-json";
+import { Ride } from "sri-xml-2-json";
 const xmlDocument = "<xml>...</xml>";
-const ride = new RIDE(xmlDocument);
+const ride = new Ride(xmlDocument);
 ```
 
 ## API
@@ -116,7 +116,7 @@ console.log(jsonString);
 
 # MIT License
 
-Copyright (c) 2023 - TAXO
+Copyright (c) 2024 - TAXO
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
