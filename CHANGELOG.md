@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 1.1.0
+
+### Minor Changes
+
+- e698509: Update readme documentation
+
 ## 1.0.0
 
 ### Major Changes
