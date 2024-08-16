@@ -7,6 +7,7 @@ import {
 } from "../mapping";
 import {
   mapTaxInfo,
+  mappingExtraInfoDocs,
   mappingInfoTax,
   mappingProducts,
   parseNumberInObject,
@@ -30,6 +31,10 @@ export class CreditNoteDocument implements IDocument {
       taxInfo: {
         transform: mappingInfoTax,
         dependsOn: notaCredito.infoTributaria,
+      },
+      additionalInfo: {
+        transform: mappingExtraInfoDocs,
+        dependsOn: notaCredito,
       },
     };
     const newReceipt = { ...notaCredito };

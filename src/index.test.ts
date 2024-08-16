@@ -87,6 +87,14 @@ describe("sri-xml-2-json", () => {
       expect(responseParsed).toHaveProperty("fechaAutorizacion");
       expect(responseParsed).toHaveProperty("estado");
     });
+
+    it("should convert credit note document with additional fields", async () => {
+      const ride = new Ride(fixtures.CREDIT_NOTE_ADDITIONAL_INFORMATION);
+      const result = await ride.convertToJson();
+      const responseParsed = JSON.parse(result);
+      expect(responseParsed).toHaveProperty("infoAdicional");
+      expect(responseParsed.infoAdicional).is.be.an("array");
+    });
   });
   describe("RETENTIONS", () => {
     it("should convert retention document", async () => {
