@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 1.2.0
+
+### Minor Changes
+
+- bc61498: fix nc document no support read additional info
+
 ## 1.1.0
 
 ### Minor Changes
