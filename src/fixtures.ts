@@ -1168,6 +1168,206 @@ Q+FFvYk7avPIRfBy5ustviISEqY8AYrjdC05fQ==
 </ds:KeyInfo>
 <ds:Object Id="Signature683875-Object769775"><etsi:QualifyingProperties Target="#Signature683875"><etsi:SignedProperties Id="Signature683875-SignedProperties22188"><etsi:SignedSignatureProperties><etsi:SigningTime>2024-07-08T10:32:42-05:00</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>xvNmy3S9NaRp/VnTs6/h4S0BzxA=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AUTORIDAD DE CERTIFICACION SUBCA-1 SECURITY DATA,OU=ENTIDAD DE CERTIFICACION DE INFORMACION,O=SECURITY DATA S.A. 1,C=EC</ds:X509IssuerName><ds:X509SerialNumber>760560826</ds:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#Reference-ID-803532"><etsi:Description>comprobante</etsi:Description><etsi:MimeType>text/xml</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></ds:Object></ds:Signature></notaCredito>]]></comprobante>
 <mensajes/>
-</autorizacion>`
+</autorizacion>`,
 
+RETENTION_SALE: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<autorizacion>
+<estado>AUTORIZADO</estado>
+<numeroAutorizacion>2308202407099253457500120010010000363781154101214</numeroAutorizacion>
+<fechaAutorizacion>2024-08-30T16:07:03-05:00</fechaAutorizacion>
+<ambiente>PRODUCCIÓN</ambiente>
+<comprobante><![CDATA[<?xml version="1.0" encoding="UTF-8"?><comprobanteRetencion id="comprobante" version="2.0.0">
+  <infoTributaria>
+    <ambiente>2</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>OPERFEL SA</razonSocial>
+    <ruc>0992534575001</ruc>
+    <claveAcceso>2308202407099253457500120010010000363781154101214</claveAcceso>
+    <codDoc>07</codDoc>
+    <estab>001</estab>
+    <ptoEmi>001</ptoEmi>
+    <secuencial>000036378</secuencial>
+    <dirMatriz>Via Daule Km 14.5</dirMatriz>
+  </infoTributaria>
+  <infoCompRetencion>
+    <fechaEmision>23/08/2024</fechaEmision>
+    <dirEstablecimiento>COOP LOS MANGUITOS, Calle 28 DE AGOSTO, VIA A DAULE Kim 14.5</dirEstablecimiento>
+    <obligadoContabilidad>SI</obligadoContabilidad>
+    <tipoIdentificacionSujetoRetenido>04</tipoIdentificacionSujetoRetenido>
+    <parteRel>NO</parteRel>
+    <razonSocialSujetoRetenido>CORPORACION DE REPRESENTACIONES Y SERVICIOS TECNICOS COREPTEC S.A.</razonSocialSujetoRetenido>
+    <identificacionSujetoRetenido>1791286448001</identificacionSujetoRetenido>
+    <periodoFiscal>08/2024</periodoFiscal>
+  </infoCompRetencion>
+  <docsSustento>
+    <docSustento>
+      <codSustento>01</codSustento>
+      <codDocSustento>01</codDocSustento>
+      <numDocSustento>001011000041074</numDocSustento>
+      <fechaEmisionDocSustento>23/08/2024</fechaEmisionDocSustento>
+      <fechaRegistroContable>23/08/2024</fechaRegistroContable>
+      <numAutDocSustento>2308202401179128644800120010110000410741234567617</numAutDocSustento>
+      <pagoLocExt>01</pagoLocExt>
+      <totalSinImpuestos>3292.00</totalSinImpuestos>
+      <importeTotal>3785.80</importeTotal>
+      <impuestosDocSustento>
+        <impuestoDocSustento>
+          <codImpuestoDocSustento>2</codImpuestoDocSustento>
+          <codigoPorcentaje>4</codigoPorcentaje>
+          <baseImponible>3292.00</baseImponible>
+          <tarifa>15</tarifa>
+          <valorImpuesto>493.80</valorImpuesto>
+        </impuestoDocSustento>
+      </impuestosDocSustento>
+      <retenciones>
+        <retencion>
+          <codigo>1</codigo>
+          <codigoRetencion>312</codigoRetencion>
+          <baseImponible>3292</baseImponible>
+          <porcentajeRetener>1.75</porcentajeRetener>
+          <valorRetenido>57.61</valorRetenido>
+        </retencion>
+      </retenciones>
+      <pagos>
+        <pago>
+          <formaPago>20</formaPago>
+          <total>3785.80</total>
+        </pago>
+      </pagos>
+    </docSustento>
+    <docSustento>
+      <codSustento>01</codSustento>
+      <codDocSustento>01</codDocSustento>
+      <numDocSustento>001011000041074</numDocSustento>
+      <fechaEmisionDocSustento>23/08/2024</fechaEmisionDocSustento>
+      <fechaRegistroContable>23/08/2024</fechaRegistroContable>
+      <numAutDocSustento>2308202401179128644800120010110000410741234567617</numAutDocSustento>
+      <pagoLocExt>01</pagoLocExt>
+      <totalSinImpuestos>3292.00</totalSinImpuestos>
+      <importeTotal>3785.80</importeTotal>
+      <impuestosDocSustento>
+        <impuestoDocSustento>
+          <codImpuestoDocSustento>2</codImpuestoDocSustento>
+          <codigoPorcentaje>4</codigoPorcentaje>
+          <baseImponible>3292.00</baseImponible>
+          <tarifa>15</tarifa>
+          <valorImpuesto>493.80</valorImpuesto>
+        </impuestoDocSustento>
+      </impuestosDocSustento>
+      <retenciones>
+        <retencion>
+          <codigo>2</codigo>
+          <codigoRetencion>9</codigoRetencion>
+          <baseImponible>493.8</baseImponible>
+          <porcentajeRetener>10</porcentajeRetener>
+          <valorRetenido>49.38</valorRetenido>
+        </retencion>
+      </retenciones>
+      <pagos>
+        <pago>
+          <formaPago>20</formaPago>
+          <total>3785.80</total>
+        </pago>
+      </pagos>
+    </docSustento>
+  </docsSustento>
+  <infoAdicional>
+    <campoAdicional nombre="Email">milton.Pullupaxi@coreptec.com</campoAdicional>
+    <campoAdicional nombre="Direccion">QUITO, CUMBAYA</campoAdicional>
+    <campoAdicional nombre="Telefono">023550032</campoAdicional>
+    <campoAdicional nombre="Agente de Retención">1</campoAdicional>
+  </infoAdicional>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Id="Signature802476">
+<ds:SignedInfo Id="Signature-SignedInfo821710">
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference Id="SignedPropertiesID285365" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature802476-SignedProperties117545">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>BARi+K1IMwBm1Hjb8sjimq3DlMo=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#Certificate1992965">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>xYnquhVqcwNbMTvZG0kToEEIZmg=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Id="Reference-ID-350710" URI="#comprobante">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>zIF+Wy7579/wIj2V9qUmqFT3BuY=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="SignatureValue12039">
+eB/NuRR4MJcsfd0G1kj9C7TD/5F4qpio6YTEkdwS1q//fSLm8/6HxZBr5jvEzN8wKGBxSGyzrbGX
+LDAp/sm0/sn+CGJveVjl9kpTC6ZpnN2Oj638rf8CwQsvxJi0q4du1jaBEOF7hf5waO6E/S+aDf0p
+dDhvZT219SESrP4Agq/cV+AkakKkxpp0p/IfiTw+w+VpjtEElzSFEURdFLSDOzcCV2B3yc3d++7J
+SkGlsCgkRZESazGusq/YWzhsRavy2GLUKErgWMrZw5I2TYucGoZJWVkujX1hZJ4gqLPAyvzBmKn5
+/p06AJHwKnmyYWUocPPDPLEQsGqD0jicae7eGA==
+</ds:SignatureValue>
+<ds:KeyInfo Id="Certificate1992965">
+<ds:X509Data>
+<ds:X509Certificate>
+MIIJqjCCCJKgAwIBAgIEXcxrQDANBgkqhkiG9w0BAQsFADCBkzELMAkGA1UEBhMCRUMxGzAZBgNV
+BAoTElNFQ1VSSVRZIERBVEEgUy5BLjEwMC4GA1UECxMnRU5USURBRCBERSBDRVJUSUZJQ0FDSU9O
+IERFIElORk9STUFDSU9OMTUwMwYDVQQDEyxBVVRPUklEQUQgREUgQ0VSVElGSUNBQ0lPTiBTVUIg
+U0VDVVJJVFkgREFUQTAeFw0yMDA0MDMxOTAxMzdaFw0yNTA0MDMxOTMxMzdaMIGVMQswCQYDVQQG
+EwJFQzEbMBkGA1UEChMSU0VDVVJJVFkgREFUQSBTLkEuMTAwLgYDVQQLEydFTlRJREFEIERFIENF
+UlRJRklDQUNJT04gREUgSU5GT1JNQUNJT04xNzATBgNVBAUTDDAzMDQyMDE0MjM0ODAgBgNVBAMT
+GVZJQ1RPUiBKT1NFIE5BREVSIEdBUlpPTkkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQDODzqbuspvUUtuKrXt2CGSblC5pYojpBnqnEpA6FlCBfOTFn83vjmri3jwN70/z0hc4D0Vnf59
+Fypvbq7v//HjkfNG/gJRvQ/73PrVzpGqIX+vvb6a27A7au8YO4/D2P7krEfe4mbkR3341MrTGeeS
+jrqv8Xxfz28euIihjpqi+rShHnftP1QxgE68TD0D2NEGmQViBq8N2toXo6rzv03w9nDpj42DdS55
++8WWJ6BOx3euHzH6n42RKyvxrqA50uCAsFU25W/yot7ram8cBO+K5/MsLKWCkkX4o0D3Ao5oVmyB
+UpQpZSKjZhK1AqqhwkooMnASbl/vVrKOE3LAAsvhAgMBAAGjggYAMIIF/DALBgNVHQ8EBAMCBeAw
+WQYIKwYBBQUHAQEETTBLMEkGCCsGAQUFBzABhj1odHRwOi8vb2NzcGd3LnNlY3VyaXR5ZGF0YS5u
+ZXQuZWMvZWpiY2EvcHVibGljd2ViL3N0YXR1cy9vY3NwMIHMBgNVHSAEgcQwgcEwQAYKKwYBBAGC
+pnICCTAyMDAGCCsGAQUFBwICMCQaIkNlcnRpZmljYWRvIGRlIFJlcHJlc2VudGFudGUgTGVnYWww
+fQYKKwYBBAGCpnICAzBvMG0GCCsGAQUFBwIBFmFodHRwczovL3d3dy5zZWN1cml0eWRhdGEubmV0
+LmVjL2xleWVzX25vcm1hdGl2YXMvUG9saXRpY2FzIGRlIENlcnRpZmljYWRvIFJlcHJlc2VudGFu
+dGUgTGVnYWwucGRmMBwGCisGAQQBgqZyAwoEDhMMT1BFUkZFTCBTLkEuMB0GCisGAQQBgqZyAwsE
+DxMNMDk5MjUzNDU3NTAwMTAaBgorBgEEAYKmcgMBBAwTCjA5MTI3Mjk0NjQwGwYKKwYBBAGCpnID
+AgQNEwtWSUNUT1IgSk9TRTAVBgorBgEEAYKmcgMDBAcTBU5BREVSMBcGCisGAQQBgqZyAwQECRMH
+R0FSWk9OSTAfBgorBgEEAYKmcgMFBBETD0dFUkVOVEUgR0VORVJBTDA3BgorBgEEAYKmcgMHBCkT
+JzI4IERFIEFHT1NUTyBTL04gWSBDQUxMRSBMT1MgTUFOR1VJVE9TIDAbBgorBgEEAYKmcgMIBA0T
+CzU5MzQ0NTQ5NjY2MBkGCisGAQQBgqZyAwkECxMJR1VBWUFRVUlMMBcGCisGAQQBgqZyAwwECRMH
+RUNVQURPUjAfBgorBgEEAYKmcgMgBBETDzAwMTAwMjAwMDAzNjI2MjAgBgorBgEEAYKmcgMhBBIT
+EFNFQ0RBVEs0MzYyNkggICAwHQYDVR0RBBYwFIEScm5hZGVyQG9wZXJmZWwuY29tMIICewYDVR0f
+BIICcjCCAm4wggJqoIICZqCCAmKGPWh0dHA6Ly9vY3NwZ3cuc2VjdXJpdHlkYXRhLm5ldC5lYy9l
+amJjYS9wdWJsaWN3ZWIvc3RhdHVzL29jc3CGgdVsZGFwOi8vZGlyZWN0LnNlY3VyaXR5ZGF0YS5u
+ZXQuZWMvY249Q1JMNjYyLGNuPUFVVE9SSURBRCUyMERFJTIwQ0VSVElGSUNBQ0lPTiUyMFNVQiUy
+MFNFQ1VSSVRZJTIwREFUQSxvdT1FTlRJREFEJTIwREUlMjBDRVJUSUZJQ0FDSU9OJTIwREUlMjBJ
+TkZPUk1BQ0lPTixvPVNFQ1VSSVRZJTIwREFUQSUyMFMuQS4sYz1FQz9jZXJ0aWZpY2F0ZVJldm9j
+YXRpb25MaXN0P2Jhc2WGgZ5odHRwczovL2RpcmVjdC5zZWN1cml0eWRhdGEubmV0LmVjL35jcmwv
+YXV0b3JpZGFkX2RlX2NlcnRpZmljYWNpb25fc3ViX3NlY3VyaXR5X2RhdGFfZW50aWRhZF9kZV9j
+ZXJ0aWZpY2FjaW9uX2RlX2luZm9ybWFjaW9uX2N1cml0eV9kYXRhX3MuYS5fY19lY19jcmxmaWxl
+LmNybKSBpzCBpDELMAkGA1UEBhMCRUMxGzAZBgNVBAoTElNFQ1VSSVRZIERBVEEgUy5BLjEwMC4G
+A1UECxMnRU5USURBRCBERSBDRVJUSUZJQ0FDSU9OIERFIElORk9STUFDSU9OMTUwMwYDVQQDEyxB
+VVRPUklEQUQgREUgQ0VSVElGSUNBQ0lPTiBTVUIgU0VDVVJJVFkgREFUQTEPMA0GA1UEAxMGQ1JM
+NjYyMCsGA1UdEAQkMCKADzIwMjAwNDAzMTkwMTM3WoEPMjAyNTA0MDMxOTMxMzdaMB8GA1UdIwQY
+MBaAFPcvTOB152KjeJZbBrYucTvMbD+QMB0GA1UdDgQWBBREguSwUKulPChPRC2274K0E2dX+zAJ
+BgNVHRMEAjAAMBkGCSqGSIb2fQdBAAQMMAobBFY4LjEDAgOoMA0GCSqGSIb3DQEBCwUAA4IBAQAp
+ssojzqKsqNYa/0KUzNjXacoWQngQ3Dbpq7WbA8XDIKdMPRbamXEL60ilokJ5co1ONp2SEYRac8h0
+k8SfnLYfAuCBOy53OGE2HKkwzfftBG2douzpCNttZRnVLMBcT0aGJv3GTdn3/Z649zyqKT4B6DtS
+qD2LSE2w6KeWteuvQY071mvT60+d/mE6CScynsh8lpPZ+7ehmLVdWhmdw9m4wXvatvwDgZQj/xOg
+aTc51jp33njiggA9Kf8pRcgkzlSHGxEcP6ZCs3k+NlOpEwrQjuTn/u381O+Lz0qiK3AEGl4afIac
+v1duRk2qBvnZnQfSlx+VhKqBKXJIwztWLzlX
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+zg86m7rKb1FLbiq17dghkm5QuaWKI6QZ6pxKQOhZQgXzkxZ/N745q4t48De9P89IXOA9FZ3+fRcq
+b26u7//x45HzRv4CUb0P+9z61c6RqiF/r72+mtuwO2rvGDuPw9j+5KxH3uJm5Ed9+NTK0xnnko66
+r/F8X89vHriIoY6aovq0oR537T9UMYBOvEw9A9jRBpkFYgavDdraF6Oq879N8PZw6Y+Ng3UuefvF
+liegTsd3rh8x+p+NkSsr8a6gOdLggLBVNuVv8qLe62pvHATviufzLCylgpJF+KNA9wKOaFZsgVKU
+KWUio2YStQKqocJKKDJwEm5f71ayjhNywALL4Q==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+<ds:Object Id="Signature802476-Object55298"><etsi:QualifyingProperties Target="#Signature802476"><etsi:SignedProperties Id="Signature802476-SignedProperties117545"><etsi:SignedSignatureProperties><etsi:SigningTime>2024-08-30T21:07:01+00:00</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>NFEDRb4CLbawTxvrGJI7VIbDHi8=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AUTORIDAD DE CERTIFICACION SUB SECURITY DATA,OU=ENTIDAD DE CERTIFICACION DE INFORMACION,O=SECURITY DATA S.A.,C=EC</ds:X509IssuerName><ds:X509SerialNumber>1573677888</ds:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#Reference-ID-350710"><etsi:Description>contenido comprobante</etsi:Description><etsi:MimeType>text/xml</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></ds:Object></ds:Signature></comprobanteRetencion>]]></comprobante>
+<mensajes/>
+</autorizacion>
+`
 };
