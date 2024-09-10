@@ -35,18 +35,23 @@ export class Ride {
       const { Authorization, autorizacion } = result;
 
       const documentParser = Authorization ?? autorizacion;
-
+      
       const xmlReceipt = documentParser!.comprobante!;
+      
       const jsonReceipt = await parser.parseStringPromise(xmlReceipt);
+      
       // get instance of document
       const document: IDocument = instanceDocument(jsonReceipt);
+      
       // transform schema
       const response = document.transform(jsonReceipt);
+      
       const transformedResponse = {
         ...response,
         [commonPropertyMap.authorizationAt]: documentParser!.fechaAutorizacion,
         [commonPropertyMap.authorizationStatus]: documentParser!.estado,
       };
+      
       return JSON.stringify(transformedResponse);
     } catch (error) {
       console.error(error);
@@ -56,6 +61,7 @@ export class Ride {
 }
 
 const instanceDocument = (receipt: any): IDocument => {
+  
   try {
     if (DocumentTypeEnum.BILL in receipt) {
       return new BillDocument();
