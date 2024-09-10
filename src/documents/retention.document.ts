@@ -1,9 +1,9 @@
-import { DocumentTypeEnum } from "../enums";
+import { DocumentTypeEnum } from '../enums';
 import {
   removePropertyMap,
   retentionPropertyMap,
   transformTypeIdentification,
-} from "../mapping";
+} from '../mapping';
 import {
   mappingExtraInfo,
   mappingExtraInfoDocs,
@@ -11,8 +11,8 @@ import {
   parseNumberInObject,
   removeUnwantedProperties,
   transformTaxInfo,
-} from "../utils";
-import { IDocument } from "./document.interface";
+} from '../utils';
+import { IDocument } from './document.interface';
 
 export class RetentionDocument implements IDocument {
   transform(xml: any): object {
@@ -73,25 +73,29 @@ export class RetentionDocument implements IDocument {
   private transformSupportingDocument(retention: any) {
     if (!retention.docsSustento) return undefined;
 
-    const { docSustento } = retention.docsSustento;
-    const { retenciones, pagos, impuestosDocSustento } = docSustento;
+    const docSustentoArray = Array.isArray(retention.docsSustento.docSustento)
+      ? retention.docsSustento.docSustento
+      : [retention.docsSustento.docSustento];
 
-    const retencions = Array.isArray(retenciones.retencion)
-      ? retenciones.retencion
-      : [retenciones.retencion];
+    return docSustentoArray.map((docSustento: any) => {
+      const { retenciones, pagos, impuestosDocSustento } = docSustento;
+      const retencions = Array.isArray(retenciones.retencion)
+        ? retenciones.retencion
+        : [retenciones.retencion];
 
-    const payments = Array.isArray(pagos.pago) ? pagos.pago : [pagos.pago];
+      const payments = Array.isArray(pagos.pago) ? pagos.pago : [pagos.pago];
 
-    const taxesDocSupport = Array.isArray(
-      impuestosDocSustento.impuestoDocSustento
-    )
-      ? impuestosDocSustento.impuestoDocSustento
-      : [impuestosDocSustento.impuestoDocSustento];
-    return parseNumberInObject({
-      ...docSustento,
-      [retentionPropertyMap.retentions]: retencions,
-      [retentionPropertyMap.payments]: payments,
-      [retentionPropertyMap.taxesDocSupported]: taxesDocSupport,
+      const taxesDocSupport = Array.isArray(
+        impuestosDocSustento.impuestoDocSustento
+      )
+        ? impuestosDocSustento.impuestoDocSustento
+        : [impuestosDocSustento.impuestoDocSustento];
+      return parseNumberInObject({
+        ...docSustento,
+        [retentionPropertyMap.retentions]: retencions,
+        [retentionPropertyMap.payments]: payments,
+        [retentionPropertyMap.taxesDocSupported]: taxesDocSupport,
+      });
     });
   }
 }

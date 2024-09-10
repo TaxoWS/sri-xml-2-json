@@ -1,8 +1,6 @@
-import { an } from "vitest/dist/reporters-O4LBziQ_";
 import {
   billPropertyMap,
   commonPropertyMap,
-  retentionPropertyMap,
   transformTaxesName,
   transformTaxesPercentage,
   transformTypeEmission,
