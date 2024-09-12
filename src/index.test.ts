@@ -128,4 +128,20 @@ describe('sri-xml-2-json', () => {
       expect(responseParsed).toHaveProperty('docsSustento');
     });
   });
+  describe('SETTLEMENTS', () => {
+    it('should convert purchase settlement document', async () => {
+      const ride = new Ride(fixtures.PURCHASE_SETTLEMENT);
+      const result = await ride.convertToJson();
+      const responseParsed = JSON.parse(result);
+      expect(responseParsed).toHaveProperty('infoTributaria');
+      if (responseParsed.infoDocumento) {
+        expect(responseParsed).toHaveProperty('infoDocumento');
+      }
+      if (responseParsed.impuestos) {
+        expect(responseParsed).toHaveProperty('impuestos');
+      }
+      expect(responseParsed).toHaveProperty('fechaAutorizacion');
+      expect(responseParsed).toHaveProperty('estado');
+    });
+  });
 });
