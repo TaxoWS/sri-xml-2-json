@@ -43,7 +43,6 @@ export class Ride {
 
       // get instance of document
       const document: IDocument = instanceDocument(jsonReceipt);
-      console.log('DOCUMENT ==>', document);
 
       // transform schema
       const response = document.transform(jsonReceipt);

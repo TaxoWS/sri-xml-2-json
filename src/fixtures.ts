@@ -1370,7 +1370,7 @@ KWUio2YStQKqocJKKDJwEm5f71ayjhNywALL4Q==
 <mensajes/>
 </autorizacion>
 `,
-  PURCHASE_SETTLEMENT: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><autorizacion><estado>AUTORIZADO</estado><numeroAutorizacion>1908202403091651386400120010020000005891234567816</numeroAutorizacion><fechaAutorizacion>2024-09-03T19:08:41-05:00</fechaAutorizacion><ambiente>PRODUCCIÓN</ambiente><comprobante><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+  PURCHASE_SETTLEMENT: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><autorizacion><estado>AUTORIZADO</estado><numeroAutorizacion>3108202403091651386400120010020000005851234567815</numeroAutorizacion><fechaAutorizacion>2024-09-03T19:06:37-05:00</fechaAutorizacion><ambiente>PRODUCCIÓN</ambiente><comprobante><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <liquidacionCompra id="comprobante" version="1.1.0">
 <infoTributaria>
 <ambiente>2</ambiente>
@@ -1378,37 +1378,37 @@ KWUio2YStQKqocJKKDJwEm5f71ayjhNywALL4Q==
 <razonSocial>PLUAS ESPINOZA GUIDO ROBERTO</razonSocial>
 <nombreComercial>PLUAS ESPINOZA GUIDO ROBERTO</nombreComercial>
 <ruc>0916513864001</ruc>
-<claveAcceso>1908202403091651386400120010020000005891234567816</claveAcceso>
+<claveAcceso>3108202403091651386400120010020000005851234567815</claveAcceso>
 <codDoc>03</codDoc>
 <estab>001</estab>
 <ptoEmi>002</ptoEmi>
-<secuencial>000000589</secuencial>
+<secuencial>000000585</secuencial>
 <dirMatriz>DIAGONAL AL DESVIO DEL RCTO. EL SALTO SN</dirMatriz>
 <agenteRetencion>1</agenteRetencion>
 </infoTributaria>
 <infoLiquidacionCompra>
-<fechaEmision>19/08/2024</fechaEmision>
+<fechaEmision>31/08/2024</fechaEmision>
 <dirEstablecimiento>DIAGONAL AL DESVIO DEL RCTO. EL SALTO SN</dirEstablecimiento>
 <obligadoContabilidad>SI</obligadoContabilidad>
 <tipoIdentificacionProveedor>05</tipoIdentificacionProveedor>
-<razonSocialProveedor>SORIANO SALAS EDDIE</razonSocialProveedor>
-<identificacionProveedor>0914250881</identificacionProveedor>
-<totalSinImpuestos>5032.00</totalSinImpuestos>
+<razonSocialProveedor>MARTINEZ CEREZO LEONARDO</razonSocialProveedor>
+<identificacionProveedor>0929990109</identificacionProveedor>
+<totalSinImpuestos>6857.80</totalSinImpuestos>
 <totalDescuento>0.00</totalDescuento>
 <totalConImpuestos>
 <totalImpuesto>
 <codigo>2</codigo>
 <codigoPorcentaje>0</codigoPorcentaje>
-<baseImponible>5032.00</baseImponible>
+<baseImponible>6857.80</baseImponible>
 <valor>0.00</valor>
 </totalImpuesto>
 </totalConImpuestos>
-<importeTotal>5032.00</importeTotal>
+<importeTotal>6857.80</importeTotal>
 <moneda>DOLAR</moneda>
 <pagos>
 <pago>
 <formaPago>20</formaPago>
-<total>5032.00</total>
+<total>6857.80</total>
 <plazo>0</plazo>
 <unidadTiempo>DIAS</unidadTiempo>
 </pago>
@@ -1416,58 +1416,57 @@ KWUio2YStQKqocJKKDJwEm5f71ayjhNywALL4Q==
 </infoLiquidacionCompra>
 <detalles>
 <detalle>
-<codigoPrincipal>ACASC</codigoPrincipal>
-<codigoAuxiliar>ACASC</codigoAuxiliar>
-<descripcion>ARROZ CASCARA G. LARGO</descripcion>
-<cantidad>136.000000</cantidad>
-<precioUnitario>37.000</precioUnitario>
+<codigoPrincipal>ACASGCORT</codigoPrincipal>
+<codigoAuxiliar>ACASGCORT</codigoAuxiliar>
+<descripcion>ARROZ CASCARA G. CORTO</descripcion>
+<cantidad>201.700000</cantidad>
+<precioUnitario>34.000</precioUnitario>
 <descuento>0.00</descuento>
-<precioTotalSinImpuesto>5032.00</precioTotalSinImpuesto>
+<precioTotalSinImpuesto>6857.80</precioTotalSinImpuesto>
 <impuestos>
 <impuesto>
 <codigo>2</codigo>
 <codigoPorcentaje>0</codigoPorcentaje>
 <tarifa>0</tarifa>
-<baseImponible>5032.00</baseImponible>
+<baseImponible>6857.80</baseImponible>
 <valor>0.00</valor>
 </impuesto>
 </impuestos>
 </detalle>
 </detalles>
 <infoAdicional>
-<campoAdicional nombre="Direccion">KM 18 VIA A SAMBORONDON</campoAdicional>
-<campoAdicional nombre="Email">2</campoAdicional>
+<campoAdicional nombre="Direccion">LOS QUEMADOS</campoAdicional>
 <campoAdicional nombre="Categorizado: ">AGENTE DE RETENCION</campoAdicional>
 <campoAdicional nombre="Resolucion No.: ">RESOLUCION No. NAC-DNCRASC20-00000001</campoAdicional>
 </infoAdicional>
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Id="Signature1005907">
-<ds:SignedInfo Id="Signature-SignedInfo132397">
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Id="Signature717868">
+<ds:SignedInfo Id="Signature-SignedInfo283962">
 <ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
 <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
-<ds:Reference Id="SignedPropertiesID750233" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature1005907-SignedProperties36450">
+<ds:Reference Id="SignedPropertiesID831706" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature717868-SignedProperties231623">
 <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
-<ds:DigestValue>nXWp6hqB2QYIyGkTDIhOd7rQzdM=</ds:DigestValue>
+<ds:DigestValue>glYRFXyjIJK5vb/gbh3zU5xjioY=</ds:DigestValue>
 </ds:Reference>
-<ds:Reference URI="#Certificate1261429">
+<ds:Reference URI="#Certificate1971757">
 <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
-<ds:DigestValue>k1w6KdU3IuniZ0BTAI7SQUlNbMY=</ds:DigestValue>
+<ds:DigestValue>JljgPVYNtNSza7xd/3y/+CCfK14=</ds:DigestValue>
 </ds:Reference>
-<ds:Reference Id="Reference-ID-943706" URI="#comprobante">
+<ds:Reference Id="Reference-ID-434354" URI="#comprobante">
 <ds:Transforms>
 <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
 </ds:Transforms>
 <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
-<ds:DigestValue>43Ody/7X2tH6nr80cSRfM1eqqPY=</ds:DigestValue>
+<ds:DigestValue>sKWaf2YbmoAU7AP6ud5On+u85c8=</ds:DigestValue>
 </ds:Reference>
 </ds:SignedInfo>
-<ds:SignatureValue Id="SignatureValue761427">
-p3LevAkB71jPeK8szjFcvGijQEJAcTCPCDVm8JDJMDtTywzjPL6wug8W5Xdu6VALpalOYYvKU+tc
-23iMoRs8T3cb6z7KEGN54hWH2HRKEACZsZOuMdgFpYnGtFlzYZ2bMZV5GhjBKZiyxLz6VPDB5RmG
-GrKhPytQjkVds2QbRn15Kn+tZTtJ0C1kjrStPzBFJRl8k9wNDIkD4/da/mDEryboCsh1NeZxAUWq
-j4L9bd9Hosg/ICltqbSyAY6zB72Q8KST65G5m+62KQK7F0hTVMUE6orAib/XJJ5ZtgNdpoRjbR83
-UYB/yzbu7KaMx8KzxgHQkJDnKhMboSHXRRtSpg==
+<ds:SignatureValue Id="SignatureValue84739">
+fxfDqI9BGQG/eLPt2qLKq6UqdV+DqpJNcCsmI2bsG4fL8STfPHtW9Babi3y4px03rGK8bujn4Vv2
+d2LLfGVpSp+PMydsTg/8KaP0Cdwyp0nILxMaR/ttCydUtrBP6tSfDmHY+5/IiilWkUePwbB+IX/q
+729xchLRST8bKEpBsUZH35E7ddlhg37cCxlXj3c9dHY8C+PfdSq2MUmU5U6Uwxp0Dl/RT5D/znER
+2AOyK8cudzc6toQm4txKj4Bvr/BcO8aCxU+Wp5frnox0X533ItGdwomsR6ZAWWdfid6zjcqA38p/
+VKMh5NJmC2eVIZwERnpJ3BWytJ8eLQI1M9i6WQ==
 </ds:SignatureValue>
-<ds:KeyInfo Id="Certificate1261429">
+<ds:KeyInfo Id="Certificate1971757">
 <ds:X509Data>
 <ds:X509Certificate>
 MIIJnTCCB4WgAwIBAgIEW3EYajANBgkqhkiG9w0BAQsFADCBoTELMAkGA1UEBhMCRUMxIjAgBgNV
@@ -1529,5 +1528,5 @@ PCMYNAgfa9bexubhSo8Vi1mroDPyLo4b7up+cQ==
 </ds:RSAKeyValue>
 </ds:KeyValue>
 </ds:KeyInfo>
-<ds:Object Id="Signature1005907-Object711996"><etsi:QualifyingProperties Target="#Signature1005907"><etsi:SignedProperties Id="Signature1005907-SignedProperties36450"><etsi:SignedSignatureProperties><etsi:SigningTime>2024-09-03T19:08:39-05:00</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>epk8f9EOtB2MrtvlqTfDmhhuEts=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AC BANCO CENTRAL DEL ECUADOR,L=QUITO,OU=ENTIDAD DE CERTIFICACION DE INFORMACION-ECIBCE,O=BANCO CENTRAL DEL ECUADOR,C=EC</ds:X509IssuerName><ds:X509SerialNumber>1534138474</ds:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#Reference-ID-943706"><etsi:Description>contenido comprobante</etsi:Description><etsi:MimeType>text/xml</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></ds:Object></ds:Signature></liquidacionCompra>]]></comprobante><mensajes/></autorizacion>`,
+<ds:Object Id="Signature717868-Object55375"><etsi:QualifyingProperties Target="#Signature717868"><etsi:SignedProperties Id="Signature717868-SignedProperties231623"><etsi:SignedSignatureProperties><etsi:SigningTime>2024-09-03T19:06:34-05:00</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>epk8f9EOtB2MrtvlqTfDmhhuEts=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AC BANCO CENTRAL DEL ECUADOR,L=QUITO,OU=ENTIDAD DE CERTIFICACION DE INFORMACION-ECIBCE,O=BANCO CENTRAL DEL ECUADOR,C=EC</ds:X509IssuerName><ds:X509SerialNumber>1534138474</ds:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#Reference-ID-434354"><etsi:Description>contenido comprobante</etsi:Description><etsi:MimeType>text/xml</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></ds:Object></ds:Signature></liquidacionCompra>]]></comprobante><mensajes/></autorizacion>`,
 };
