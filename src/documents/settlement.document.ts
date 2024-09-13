@@ -9,11 +9,9 @@ import {
   mappingExtraInfoDocs,
   mappingInfoTax,
   mappingProducts,
-  mappingTaxes,
   mapTaxInfo,
   parseNumberInObject,
   removeUnwantedProperties,
-  transformTaxInfo,
 } from '../utils';
 import { IDocument } from './document.interface';
 
