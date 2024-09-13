@@ -80,6 +80,8 @@ describe('sri-xml-2-json', () => {
 
       const result = await ride.convertToJson();
       const responseParsed = JSON.parse(result);
+
+      expect(responseParsed).toHaveProperty('version');
       expect(responseParsed).not.toHaveProperty('infoAdicional');
       expect(responseParsed).toHaveProperty('infoTributaria');
       expect(responseParsed).toHaveProperty('infoDocumento');
