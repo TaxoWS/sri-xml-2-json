@@ -142,6 +142,7 @@ export const mapTaxInfo = (totalWithTaxes: any) => {
 
 export const mappingInfoTax = (infoTributaria: any) => {
   const { ambiente, tipoEmision } = infoTributaria;
+
   return {
     ...infoTributaria,
     [commonPropertyMap.environment]: transformTypeEnvironment[ambiente],
@@ -162,4 +163,18 @@ export const transformTaxInfo = (receipt: any): object | undefined => {
     ruc,
     claveAcceso,
   };
+};
+
+interface Receipt {
+  $: {
+    version: string;
+  };
+}
+
+export const mapVersionInfo = (
+  receipt: Receipt
+): { documentVersion: string } | '1.0' => {
+  const { version: documentVersion } = receipt.$;
+
+  return documentVersion ? { documentVersion } : '1.0';
 };
