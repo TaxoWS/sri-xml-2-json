@@ -86,6 +86,7 @@ export const settlementPropertyMap = {
   settlementInfo: 'infoLiquidacionCompra',
   additionalInfo: 'infoAdicional',
   products: 'productos',
+  details: 'detalles',
 };
 
 export const removePropertyMap = {

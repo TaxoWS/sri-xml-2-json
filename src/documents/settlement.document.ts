@@ -38,6 +38,10 @@ export class SettlementDocument implements IDocument {
         transform: mappingProducts,
         dependsOn: liquidacionCompra.detalles,
       },
+      details: {
+        transform: mappingProducts,
+        dependsOn: liquidacionCompra.detalles,
+      },
       additionalInfo: {
         transform: mappingExtraInfoDocs,
         dependsOn: liquidacionCompra,
@@ -68,7 +72,7 @@ export class SettlementDocument implements IDocument {
 
   private transformSettlementInfo(settlement: any) {
     const { infoLiquidacionCompra } = settlement;
-    console.log('infoLiquidacionCompra ->', infoLiquidacionCompra);
+
     const parsedNumberInfoSettlement = parseNumberInObject(
       infoLiquidacionCompra
     );
