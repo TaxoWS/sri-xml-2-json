@@ -1,3 +1,4 @@
+import { addCommonTransformations } from '../documentUtils';
 import { DocumentTypeEnum } from '../enums';
 import {
   billPropertyMap,
@@ -6,12 +7,12 @@ import {
   transformTypeIdentification,
 } from '../mapping';
 import {
-  mappingExtraInfoDocs,
-  mappingInfoTax,
   mappingProducts,
-  mapTaxInfo,
+  mappingInfoTax,
+  mappingExtraInfoDocs,
   parseNumberInObject,
   removeUnwantedProperties,
+  mapTaxInfo,
 } from '../utils';
 import { IDocument } from './document.interface';
 
@@ -23,7 +24,8 @@ export class SettlementDocument implements IDocument {
       throw new Error('Missing infoTributaria in settlement document');
     }
 
-    const transformations = {
+    // Transformaciones específicas del documento
+    const specificTransformations = {
       taxInfo: {
         transform: mappingInfoTax,
         dependsOn: liquidacionCompra.infoTributaria,
@@ -36,15 +38,17 @@ export class SettlementDocument implements IDocument {
         transform: mappingProducts,
         dependsOn: liquidacionCompra.detalles,
       },
-      details: {
-        transform: mappingProducts,
-        dependsOn: liquidacionCompra.detalles,
-      },
       additionalInfo: {
         transform: mappingExtraInfoDocs,
         dependsOn: liquidacionCompra,
       },
     };
+
+    // transformaciones comunes
+    const transformations = addCommonTransformations(
+      liquidacionCompra,
+      specificTransformations
+    );
 
     const newSettlement = { ...liquidacionCompra };
 
