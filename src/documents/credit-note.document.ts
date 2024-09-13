@@ -1,10 +1,10 @@
-import { DocumentTypeEnum } from "../enums";
+import { DocumentTypeEnum } from '../enums';
 import {
   billPropertyMap,
   creditNotePropertyMap,
   removePropertyMap,
   transformTypeIdentification,
-} from "../mapping";
+} from '../mapping';
 import {
   mapTaxInfo,
   mappingExtraInfoDocs,
@@ -12,8 +12,8 @@ import {
   mappingProducts,
   parseNumberInObject,
   removeUnwantedProperties,
-} from "../utils";
-import { IDocument } from "./document.interface";
+} from '../utils';
+import { IDocument } from './document.interface';
 
 export class CreditNoteDocument implements IDocument {
   transform(xml: any): object {

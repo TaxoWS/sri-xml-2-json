@@ -1,12 +1,16 @@
 import { DocumentTypeEnum } from '../enums';
 import {
+  billPropertyMap,
   removePropertyMap,
   settlementPropertyMap,
   transformTypeIdentification,
 } from '../mapping';
 import {
   mappingExtraInfoDocs,
+  mappingInfoTax,
+  mappingProducts,
   mappingTaxes,
+  mapTaxInfo,
   parseNumberInObject,
   removeUnwantedProperties,
   transformTaxInfo,
@@ -23,24 +27,20 @@ export class SettlementDocument implements IDocument {
 
     const transformations = {
       taxInfo: {
-        transform: transformTaxInfo,
-        dependsOn: liquidacionCompra[settlementPropertyMap.taxInfo],
+        transform: mappingInfoTax,
+        dependsOn: liquidacionCompra.infoTributaria,
       },
-      documentInfo: {
-        transform: this.transformDocumentInfo,
+      settlementInfo: {
+        transform: this.transformSettlementInfo,
         dependsOn: liquidacionCompra,
       },
-      taxes: {
-        transform: mappingTaxes,
-        dependsOn: liquidacionCompra[settlementPropertyMap.totalWithTaxes],
+      products: {
+        transform: mappingProducts,
+        dependsOn: liquidacionCompra.detalles,
       },
       additionalInfo: {
         transform: mappingExtraInfoDocs,
-        dependsOn: liquidacionCompra[settlementPropertyMap.additionalInfo],
-      },
-      details: {
-        transform: this.transformDetails,
-        dependsOn: liquidacionCompra[settlementPropertyMap.details],
+        dependsOn: liquidacionCompra,
       },
     };
 
@@ -61,47 +61,29 @@ export class SettlementDocument implements IDocument {
       removePropertyMap.dollarSign,
     ]);
 
-    return newSettlement;
+    const settlementParser = parseNumberInObject(newSettlement);
+
+    return settlementParser;
   }
 
-  private transformDocumentInfo(settlement: any): object {
+  private transformSettlementInfo(settlement: any) {
     const { infoLiquidacionCompra } = settlement;
-
-    if (!infoLiquidacionCompra) {
-      throw new Error('Missing infoLiquidacionCompra in settlement document');
-    }
-
-    const providerType =
+    console.log('infoLiquidacionCompra ->', infoLiquidacionCompra);
+    const parsedNumberInfoSettlement = parseNumberInObject(
+      infoLiquidacionCompra
+    );
+    const buyerType =
       transformTypeIdentification[
-        infoLiquidacionCompra[settlementPropertyMap.typeIdentificationProvider]
+        infoLiquidacionCompra.tipoIdentificacionProveedor
       ];
 
+    const taxInfo = mapTaxInfo(infoLiquidacionCompra.totalConImpuestos);
+
     return {
-      ...infoLiquidacionCompra,
-      [settlementPropertyMap.typeIdentificationProvider]: providerType,
-      [settlementPropertyMap.type]: DocumentTypeEnum.SETTLEMENT,
+      ...parsedNumberInfoSettlement,
+      [billPropertyMap.type]: DocumentTypeEnum.SETTLEMENT,
+      [billPropertyMap.buyerIdType]: buyerType,
+      [billPropertyMap.totalTaxInfo]: taxInfo,
     };
-  }
-
-  private transformDetails(settlement: any) {
-    if (!settlement) return undefined;
-
-    const detailsArray = Array.isArray(settlement) ? settlement : [settlement];
-
-    return detailsArray.map((detalle: any) => {
-      const { impuestos } = detalle;
-
-      const taxes =
-        impuestos && impuestos.impuesto
-          ? Array.isArray(impuestos.impuesto)
-            ? impuestos.impuesto
-            : [impuestos.impuesto]
-          : [];
-
-      return parseNumberInObject({
-        ...detalle,
-        [settlementPropertyMap.supportingDocumentTaxes]: taxes,
-      });
-    });
   }
 }
