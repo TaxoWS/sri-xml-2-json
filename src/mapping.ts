@@ -56,6 +56,7 @@ export const billPropertyMap = {
 };
 
 export const creditNotePropertyMap = {
+  versionInfo: 'version',
   type: 'tipo',
   buyerIdType: 'tipoIdentificacionCompradorNombre',
   totalTaxInfo: 'totalImpuestos',
