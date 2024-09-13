@@ -83,21 +83,9 @@ export const retentionPropertyMap = {
 
 export const settlementPropertyMap = {
   taxInfo: 'infoTributaria',
-  typeIdentificationProvider:
-    'infoLiquidacionCompra.tipoIdentificacionProveedor',
-  type: 'infoLiquidacionCompra.codDoc',
-  supplierRazonSocial: 'infoLiquidacionCompra.razonSocialProveedor',
-  supplierIdentification: 'infoLiquidacionCompra.identificacionProveedor',
-  totalWithoutTaxes: 'infoLiquidacionCompra.totalSinImpuestos',
-  totalDiscount: 'infoLiquidacionCompra.totalDescuento',
-  totalWithTaxes: 'infoLiquidacionCompra.totalConImpuestos.totalImpuesto',
-  totalAmount: 'infoLiquidacionCompra.importeTotal',
-  payments: 'infoLiquidacionCompra.pagos.pago',
-  details: 'detalles.detalle',
-  additionalInfo: 'infoAdicional.campoAdicional',
-  retentions: 'impuestos',
-  supportingDocumentTaxes: 'impuestos.impuesto',
-  paymentsInfo: 'pagos.pago',
+  settlementInfo: 'infoLiquidacionCompra',
+  additionalInfo: 'infoAdicional',
+  products: 'productos',
 };
 
 export const removePropertyMap = {
