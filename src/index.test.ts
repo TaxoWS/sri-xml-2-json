@@ -134,18 +134,8 @@ describe('sri-xml-2-json', () => {
       const result = await ride.convertToJson();
       const responseParsed = JSON.parse(result);
 
-      if (responseParsed.infoTributaria) {
-        expect(responseParsed).toHaveProperty('infoTributaria');
-      }
-
-      if (responseParsed.infoDocumento) {
-        expect(responseParsed).toHaveProperty('infoDocumento');
-      }
-
-      if (responseParsed.impuestos) {
-        expect(responseParsed).toHaveProperty('impuestos');
-      }
-
+      expect(responseParsed).toHaveProperty('infoTributaria');
+      expect(responseParsed).toHaveProperty('infoLiquidacionCompra');
       expect(responseParsed).toHaveProperty('fechaAutorizacion');
       expect(responseParsed).toHaveProperty('estado');
     });
