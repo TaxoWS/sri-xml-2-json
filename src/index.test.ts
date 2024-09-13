@@ -73,6 +73,12 @@ describe('sri-xml-2-json', () => {
 
       expect(typeof result).toBe('string');
     });
+    it('should show the bill version', async () => {
+      const ride = new Ride(fixtures.BILL_MULTIPLE_ITEMS);
+      const result = await ride.convertToJson();
+      const responseParsed = JSON.parse(result);
+      expect(responseParsed).toHaveProperty('version');
+    });
   });
   describe('CREDITS NOTES', () => {
     it('should convert credit note document', async () => {

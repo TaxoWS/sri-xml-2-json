@@ -41,6 +41,7 @@ export const transformTypeIdentification: Record<string, string> = {
 };
 
 export const billPropertyMap = {
+  versionInfo: 'version',
   type: 'tipo',
   buyerIdType: 'tipoIdentificacionCompradorNombre',
   paymentInfo: 'pago',
