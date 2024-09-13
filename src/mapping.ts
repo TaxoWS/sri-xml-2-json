@@ -82,6 +82,7 @@ export const retentionPropertyMap = {
 };
 
 export const settlementPropertyMap = {
+  versionInfo: 'version',
   taxInfo: 'infoTributaria',
   settlementInfo: 'infoLiquidacionCompra',
   additionalInfo: 'infoAdicional',
