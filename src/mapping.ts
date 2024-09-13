@@ -70,6 +70,7 @@ export const creditNotePropertyMap = {
   taxes: 'impuestos',
 };
 export const retentionPropertyMap = {
+  versionInfo: 'version',
   type: 'tipo',
   taxes: 'impuestos',
   documentInfo: 'infoDocumento',

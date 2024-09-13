@@ -103,6 +103,8 @@ describe('sri-xml-2-json', () => {
       const ride = new Ride(fixtures.RETENTION);
       const result = await ride.convertToJson();
       const responseParsed = JSON.parse(result);
+
+      expect(responseParsed).toHaveProperty('version');
       expect(responseParsed).toHaveProperty('infoTributaria');
       expect(responseParsed).toHaveProperty('infoDocumento');
       expect(responseParsed).toHaveProperty('impuestos');
@@ -113,6 +115,8 @@ describe('sri-xml-2-json', () => {
       const ride = new Ride(fixtures.RETENTION_SALE);
       const result = await ride.convertToJson();
       const responseParsed = JSON.parse(result);
+
+      expect(responseParsed).toHaveProperty('version');
       expect(responseParsed).toHaveProperty('infoTributaria');
       expect(responseParsed).toHaveProperty('infoDocumento');
       expect(responseParsed).toHaveProperty('docsSustento');
