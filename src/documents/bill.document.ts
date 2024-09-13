@@ -1,4 +1,5 @@
-import { DocumentTypeEnum } from "../enums";
+import { addCommonTransformations } from '../documentUtils';
+import { DocumentTypeEnum } from '../enums';
 import {
   billPropertyMap,
   commonPropertyMap,
@@ -9,19 +10,21 @@ import {
   transformTypeEmission,
   transformTypeEnvironment,
   transformTypeIdentification,
-} from "../mapping";
+} from '../mapping';
 import {
   mappingExtraInfo,
   parseNumberInObject,
   removeUnwantedProperties,
-} from "../utils";
-import { IDocument } from "./document.interface";
+} from '../utils';
+
+import { IDocument } from './document.interface';
 
 export class BillDocument implements IDocument {
   public transform(receipt: any): object {
     const { factura } = receipt;
-    // define transformations
-    const transformations = {
+
+    // Definir transformaciones específicas del documento
+    const specificTransformations = {
       documentInfo: {
         transform: this.transformDocumentInfo,
         dependsOn: factura,
@@ -35,8 +38,15 @@ export class BillDocument implements IDocument {
         transform: this.transformInfoTax,
         dependsOn: factura,
       },
-      // Add other transformations as needed
+      // Puedes añadir más transformaciones si es necesario
     };
+
+    // Añadir las transformaciones comunes usando el método 'addCommonTransformations'
+    const transformations = addCommonTransformations(
+      factura,
+      specificTransformations
+    );
+
     const newReceipt = { ...factura };
     Object.keys(transformations).forEach((key) => {
       const { transform, dependsOn } =
@@ -45,7 +55,7 @@ export class BillDocument implements IDocument {
         transform(dependsOn);
     });
 
-    // remove unwanted properties
+    // Remover propiedades no deseadas
     removeUnwantedProperties(newReceipt, [
       removePropertyMap.signature,
       removePropertyMap.dollarSign,
@@ -59,21 +69,22 @@ export class BillDocument implements IDocument {
     return newReceipt;
   }
 
+  // Método para transformar la información del documento
   private transformDocumentInfo(bill: any): object {
     const { infoFactura } = bill;
-    // transform numbers in the bill
+    // Transformar los números en el documento
     const parsedNumberOfBill = parseNumberInObject(infoFactura);
-    // Transform buyer identification type
+    // Transformar tipo de identificación del comprador
     const buyerIdType =
       transformTypeIdentification[infoFactura.tipoIdentificacionComprador];
     const paymentMethod = infoFactura.pagos?.pago?.formaPago;
-    // Transform payment information
+    // Transformar información de pago
     const paymentInfo = {
       ...infoFactura.pagos?.pago,
       [billPropertyMap.paymentMethodName]:
         transformPaymentMethod[paymentMethod],
     };
-    // Transform tax information
+    // Transformar información de impuestos
     const isMultipleTax = Array.isArray(
       infoFactura.totalConImpuestos.totalImpuesto
     );
@@ -108,18 +119,18 @@ export class BillDocument implements IDocument {
     };
   }
 
+  // Método para transformar los productos
   private transformProducts(bill: any): object[] {
     const detalle = Array.isArray(bill.detalles.detalle)
       ? bill.detalles.detalle
       : [bill.detalles.detalle];
 
-    // map products
-
+    // Mapear productos
     return detalle.map((item: any) => {
       const { impuesto } = item.impuestos;
-      // Parse numbers in the item
+      // Parsear números en el producto
       const parsedItem = parseNumberInObject(item);
-      // Transform tax information
+      // Transformar información de impuestos
       const taxInfo = {
         ...impuesto,
         [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
@@ -135,6 +146,7 @@ export class BillDocument implements IDocument {
     });
   }
 
+  // Método para transformar la información tributaria
   private transformInfoTax(bill: any): object {
     const { ambiente, tipoEmision } = bill.infoTributaria;
     return {
