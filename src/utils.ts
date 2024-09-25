@@ -5,17 +5,17 @@ import {
   transformTaxesPercentage,
   transformTypeEmission,
   transformTypeEnvironment,
-} from "./mapping";
+} from './mapping';
 
 const FORMAT_NUMERIC_EXPECT = /^(0\.\d+|[1-9]\d*(\.\d+)?)$/;
 
 export const parseNumberInObject = (obj: any) => {
   Object.keys(obj).forEach((key) => {
-    if (typeof obj[key] === "object") {
+    if (typeof obj[key] === 'object') {
       parseNumberInObject(obj[key]);
     } else {
       if (
-        typeof obj[key] === "string" &&
+        typeof obj[key] === 'string' &&
         FORMAT_NUMERIC_EXPECT.test(obj[key])
       ) {
         obj[key] = parseFloat(obj[key]);
@@ -142,6 +142,7 @@ export const mapTaxInfo = (totalWithTaxes: any) => {
 
 export const mappingInfoTax = (infoTributaria: any) => {
   const { ambiente, tipoEmision } = infoTributaria;
+
   return {
     ...infoTributaria,
     [commonPropertyMap.environment]: transformTypeEnvironment[ambiente],
@@ -149,11 +150,31 @@ export const mappingInfoTax = (infoTributaria: any) => {
   };
 };
 
-export const transformTaxInfo = (receipt: any) => {
-  const { ambiente, tipoEmision } = receipt.infoTributaria;
+export const transformTaxInfo = (receipt: any): object | undefined => {
+  if (!receipt?.infoTributaria) {
+    return undefined;
+  }
+
+  const { ambiente, tipoEmision, ruc, claveAcceso } = receipt.infoTributaria;
+
   return {
-    ...receipt.infoTributaria,
-    [commonPropertyMap.environment]: transformTypeEnvironment[ambiente],
-    [commonPropertyMap.typeEmission]: transformTypeEmission[tipoEmision],
+    ambiente,
+    tipoEmision,
+    ruc,
+    claveAcceso,
   };
+};
+
+interface Receipt {
+  $: {
+    version: string;
+  };
+}
+
+export const mapVersionInfo = (
+  receipt: Receipt
+): { documentVersion: string } | '1.0' => {
+  const { version: documentVersion } = receipt.$;
+
+  return documentVersion ? { documentVersion } : '1.0';
 };

@@ -1,3 +1,4 @@
+import { addCommonTransformations } from '../documentUtils';
 import { DocumentTypeEnum } from '../enums';
 import {
   removePropertyMap,
@@ -5,20 +6,21 @@ import {
   transformTypeIdentification,
 } from '../mapping';
 import {
-  mappingExtraInfo,
   mappingExtraInfoDocs,
   mappingTaxes,
   parseNumberInObject,
   removeUnwantedProperties,
   transformTaxInfo,
 } from '../utils';
+
 import { IDocument } from './document.interface';
 
 export class RetentionDocument implements IDocument {
   transform(xml: any): object {
     const { comprobanteRetencion } = xml;
 
-    const transformations = {
+    // Transformaciones específicas del documento
+    const specificTransformations = {
       taxInfo: {
         transform: transformTaxInfo,
         dependsOn: comprobanteRetencion,
@@ -40,6 +42,13 @@ export class RetentionDocument implements IDocument {
         dependsOn: comprobanteRetencion,
       },
     };
+
+    // Añadir las transformaciones comunes usando el método 'addCommonTransformations'
+    const transformations = addCommonTransformations(
+      comprobanteRetencion,
+      specificTransformations
+    );
+
     const newReceipt = { ...comprobanteRetencion };
     Object.keys(transformations).forEach((key) => {
       const { transform, dependsOn } =
@@ -49,6 +58,7 @@ export class RetentionDocument implements IDocument {
       ] = transform(dependsOn);
     });
 
+    // Remover propiedades no deseadas
     removeUnwantedProperties(newReceipt, [
       removePropertyMap.signature,
       removePropertyMap.dollarSign,
@@ -58,6 +68,7 @@ export class RetentionDocument implements IDocument {
     return newReceipt;
   }
 
+  // Método para transformar la información del documento
   private transformDocumentInfo(retention: any): object {
     const { infoCompRetencion } = retention;
     const buyerType =
@@ -70,6 +81,8 @@ export class RetentionDocument implements IDocument {
       [retentionPropertyMap.type]: DocumentTypeEnum.RETENTION,
     };
   }
+
+  // Método para transformar documentos de soporte
   private transformSupportingDocument(retention: any) {
     if (!retention.docsSustento) return undefined;
 
