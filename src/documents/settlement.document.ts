@@ -13,6 +13,7 @@ import {
   parseNumberInObject,
   removeUnwantedProperties,
   mapTaxInfo,
+  transformTaxInfo,
 } from '../utils';
 import { IDocument } from './document.interface';
 
@@ -20,15 +21,11 @@ export class SettlementDocument implements IDocument {
   transform(xml: any): object {
     const { liquidacionCompra } = xml;
 
-    if (!liquidacionCompra || !liquidacionCompra.infoTributaria) {
-      throw new Error('Missing infoTributaria in settlement document');
-    }
-
     // Transformaciones específicas del documento
     const specificTransformations = {
       taxInfo: {
-        transform: mappingInfoTax,
-        dependsOn: liquidacionCompra.infoTributaria,
+        transform: transformTaxInfo,
+        dependsOn: liquidacionCompra,
       },
       documentInfo: {
         transform: this.transformSettlementInfo,
@@ -69,11 +66,10 @@ export class SettlementDocument implements IDocument {
     removeUnwantedProperties(newSettlement, [
       removePropertyMap.signature,
       removePropertyMap.dollarSign,
+      removePropertyMap.settlementInfo,
     ]);
 
-    const settlementParser = parseNumberInObject(newSettlement);
-
-    return settlementParser;
+    return newSettlement;
   }
 
   private transformSettlementInfo(settlement: any) {

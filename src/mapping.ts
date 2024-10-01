@@ -102,6 +102,7 @@ export const removePropertyMap = {
   totalWithTaxes: 'totalConImpuestos',
   creditNoteInfo: 'infoNotaCredito',
   retentionInfo: 'infoCompRetencion',
+  settlementInfo: 'infoLiquidacionCompra',
 };
 
 export const commonPropertyMap = {
