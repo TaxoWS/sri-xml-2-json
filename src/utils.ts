@@ -155,13 +155,32 @@ export const transformTaxInfo = (receipt: any): object | undefined => {
     return undefined;
   }
 
-  const { ambiente, tipoEmision, ruc, claveAcceso } = receipt.infoTributaria;
+  const {
+    ambiente,
+    tipoEmision,
+    ruc,
+    claveAcceso,
+    codDoc,
+    razonSocial,
+    nombreComercial,
+    estab,
+    ptoEmi,
+    secuencial,
+    dirMatriz,
+  } = receipt.infoTributaria;
 
   return {
     ambiente,
     tipoEmision,
     ruc,
     claveAcceso,
+    codDoc,
+    razonSocial,
+    nombreComercial,
+    estab,
+    ptoEmi,
+    secuencial,
+    dirMatriz,
   };
 };
 

@@ -30,7 +30,7 @@ export class SettlementDocument implements IDocument {
         transform: mappingInfoTax,
         dependsOn: liquidacionCompra.infoTributaria,
       },
-      settlementInfo: {
+      documentInfo: {
         transform: this.transformSettlementInfo,
         dependsOn: liquidacionCompra,
       },

@@ -144,10 +144,10 @@ describe('sri-xml-2-json', () => {
       const ride = new Ride(fixtures.PURCHASE_SETTLEMENT);
       const result = await ride.convertToJson();
       const responseParsed = JSON.parse(result);
-      expect(responseParsed).toHaveProperty('version');
 
+      expect(responseParsed).toHaveProperty('version');
       expect(responseParsed).toHaveProperty('infoTributaria');
-      expect(responseParsed).toHaveProperty('infoLiquidacionCompra');
+      expect(responseParsed).toHaveProperty('infoDocumento');
       expect(responseParsed).toHaveProperty('fechaAutorizacion');
       expect(responseParsed).toHaveProperty('estado');
     });

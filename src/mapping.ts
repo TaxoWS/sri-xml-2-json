@@ -87,7 +87,7 @@ export const retentionPropertyMap = {
 export const settlementPropertyMap = {
   versionInfo: 'version',
   taxInfo: 'infoTributaria',
-  settlementInfo: 'infoLiquidacionCompra',
+  documentInfo: 'infoDocumento',
   additionalInfo: 'infoAdicional',
   products: 'productos',
   details: 'detalles',
