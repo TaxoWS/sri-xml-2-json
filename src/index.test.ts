@@ -152,4 +152,16 @@ describe('sri-xml-2-json', () => {
       expect(responseParsed).toHaveProperty('estado');
     });
   });
+  describe("DEBIT NOTES", () => {
+    it('should convert debit note document', async () => {
+      const ride = new Ride(fixtures.DEBIT_NOTE_CASE_1);
+      const result = await ride.convertToJson();
+      const responseParsed = JSON.parse(result);
+
+      expect(responseParsed).toHaveProperty('version');
+      expect(responseParsed).toHaveProperty('infoTributaria');
+      expect(responseParsed).toHaveProperty('infoDocumento');
+      expect(responseParsed).toHaveProperty('estado');
+    });
+  });
 });
