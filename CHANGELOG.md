@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 1.4.0
+
+### Minor Changes
+
+- b2cba8f: support credit note
+
 ## 1.2.0
 
 ### Minor Changes
