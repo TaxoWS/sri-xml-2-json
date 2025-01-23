@@ -3,4 +3,5 @@ export enum DocumentTypeEnum {
   CREDIT_NOTE = 'notaCredito',
   RETENTION = 'comprobanteRetencion',
   SETTLEMENT = 'liquidacionCompra',
+  DEBIT_NOTE = 'notaDebito',
 }

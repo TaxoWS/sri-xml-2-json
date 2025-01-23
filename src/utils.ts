@@ -7,7 +7,8 @@ import {
   transformTypeEnvironment,
 } from './mapping';
 
-const FORMAT_NUMERIC_EXPECT = /^(0\.\d+|[1-9]\d*(\.\d+)?)$/;
+const FORMAT_NUMERIC_EXPECT = /^(0|0\.\d+|[1-9]\d*(\.\d+)?)$/;
+
 
 export const parseNumberInObject = (obj: any) => {
   Object.keys(obj).forEach((key) => {
@@ -70,6 +71,15 @@ export const removeUnwantedProperties = (object: any, properties: string[]) => {
     delete object[property];
   });
 };
+
+export const removeUnusedProperties = (object: any, properties: string[]) => {
+  properties.forEach(prop => {
+    if (object.hasOwnProperty(prop)) {
+      delete object[prop];
+    }
+  });
+  return object;
+}
 
 export const mappingTaxes = (taxes: any) => {
   if (!taxes) {
