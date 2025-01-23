@@ -1,7 +1,6 @@
-import { a } from "vitest/dist/suite-dF4WyktM";
 import { DocumentTypeEnum } from "../enums";
 import { billPropertyMap, commonPropertyMap, removePropertyMap, transformTaxesName, transformTypeEmission, transformTypeEnvironment, transformTypeIdentification } from "../mapping";
-import { mappingExtraInfoDocs, mapVersionInfo, parseNumberInObject, removeUnusedProperties, removeUnwantedProperties } from "../utils";
+import { mappingExtraInfoDocs, mapVersionInfo, parseNumberInObject, removeUnusedProperties } from "../utils";
 import { IDocument } from "./document.interface";
 
 export class DebitNoteDocument implements IDocument {
