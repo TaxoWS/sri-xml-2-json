@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 1.5.0
+
+### Minor Changes
+
+- be25d0e: formater large number as access key
+
 ## 1.4.0
 
 ### Minor Changes
