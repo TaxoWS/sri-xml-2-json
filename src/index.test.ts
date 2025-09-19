@@ -79,6 +79,35 @@ describe('sri-xml-2-json', () => {
       const responseParsed = JSON.parse(result);
       expect(responseParsed).toHaveProperty('version');
     });
+    it('should handle bill with spaces in numeric values correctly', async () => {
+      const ride = new Ride(fixtures.BILL_WITH_SPACES);
+      const result = await ride.convertToJson();
+      const responseParsed = JSON.parse(result);
+
+      expect(responseParsed).toHaveProperty('infoTributaria');
+      expect(responseParsed).toHaveProperty('infoDocumento');
+      expect(responseParsed).toHaveProperty('productos');
+
+      // Verificar que los valores numéricos se parsean correctamente sin espacios
+      expect(responseParsed.infoDocumento.totalSinImpuestos).toBe(59.13);
+      expect(responseParsed.infoDocumento.totalDescuento).toBe(0);
+      expect(responseParsed.infoDocumento.propina).toBe(0);
+      expect(responseParsed.infoDocumento.importeTotal).toBe(68);
+      expect(responseParsed.infoDocumento.pago.total).toBe(68);
+
+      // Verificar valores en impuestos
+      expect(responseParsed.infoDocumento.totalImpuestos[0].baseImponible).toBe(59.13);
+      expect(responseParsed.infoDocumento.totalImpuestos[0].valor).toBe(8.87);
+
+      // Verificar valores en productos
+      expect(responseParsed.productos[0].precioUnitario).toBe(35.14);
+      expect(responseParsed.productos[0].precioTotalSinImpuesto).toBe(35.14);
+      expect(responseParsed.productos[0].impuestos.baseImponible).toBe(35.14);
+      expect(responseParsed.productos[0].impuestos.valor).toBe(5.27);
+
+      expect(responseParsed.productos[1].precioUnitario).toBe(22.97);
+      expect(responseParsed.productos[2].precioUnitario).toBe(1.03);
+    });
   });
   describe('CREDITS NOTES', () => {
     it('should convert credit note document', async () => {
