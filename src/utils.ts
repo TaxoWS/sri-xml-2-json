@@ -13,19 +13,20 @@ const FORMAT_NUMERIC_EXPECT = /^(0|0\.\d+|[1-9]\d*(\.\d+)?)$/;
 export const parseNumberInObject = (obj: any) => {
   // Campos que deben mantenerse como string para evitar problemas de precisión numérica
   const STRING_FIELDS = ['numAutDocSustento', 'claveAcceso'];
-  
+
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] === 'object') {
       parseNumberInObject(obj[key]);
     } else {
-      if (
-        typeof obj[key] === 'string' &&
-        FORMAT_NUMERIC_EXPECT.test(obj[key]) &&
-        !STRING_FIELDS.includes(key) &&
-        // Evitar conversión de números muy largos (más de 15 dígitos)
-        obj[key].length <= 15
-      ) {
-        obj[key] = parseFloat(obj[key]);
+      if (typeof obj[key] === 'string') {
+        const trimmedValue = obj[key].trim();
+        if (
+          FORMAT_NUMERIC_EXPECT.test(trimmedValue) &&
+          !STRING_FIELDS.includes(key) &&
+          trimmedValue.length <= 15
+        ) {
+          obj[key] = parseFloat(trimmedValue);
+        }
       }
     }
   });
