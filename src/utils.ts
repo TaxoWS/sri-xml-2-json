@@ -19,12 +19,10 @@ export const parseNumberInObject = (obj: any) => {
       parseNumberInObject(obj[key]);
     } else {
       if (typeof obj[key] === 'string') {
-        // Eliminar espacios en blanco al inicio y al final
         const trimmedValue = obj[key].trim();
         if (
           FORMAT_NUMERIC_EXPECT.test(trimmedValue) &&
           !STRING_FIELDS.includes(key) &&
-          // Evitar conversión de números muy largos (más de 15 dígitos)
           trimmedValue.length <= 15
         ) {
           obj[key] = parseFloat(trimmedValue);
