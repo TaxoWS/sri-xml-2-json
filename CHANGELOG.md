@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 1.6.0
+
+### Minor Changes
+
+- aa12ba3: remove space in number fields
+
 ## 1.5.0
 
 ### Minor Changes
