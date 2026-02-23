@@ -16,8 +16,9 @@ export class DebitNoteDocument implements IDocument {
         // convert taxes in array
         const taxes = Array.isArray(notaDebito.infoNotaDebito.impuestos)? notaDebito.infoNotaDebito.impuestos : [notaDebito.infoNotaDebito.impuestos.impuesto];
 
-        // convert payments in array
-        const payments = Array.isArray(notaDebito.infoNotaDebito.pagos)? notaDebito.infoNotaDebito.pagos : [notaDebito.infoNotaDebito.pagos.pago];
+        // convert payments in array (pagos is optional in some SRI responses)
+        const pagos = notaDebito.infoNotaDebito.pagos;
+        const payments = !pagos ? [] : Array.isArray(pagos) ? pagos : [pagos.pago];
 
         mapVersionInfo(notaDebito);
 
