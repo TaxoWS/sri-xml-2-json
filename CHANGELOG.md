@@ -1,5 +1,12 @@
 # @taxo/sri-xml-2-json
 
+## 1.6.1
+
+### Patch Changes
+
+- change of payment node in debit note
+- 2f9856e: change nodo debit note
+
 ## 1.6.0
 
 ### Minor Changes
