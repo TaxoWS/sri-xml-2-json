@@ -1,5 +1,11 @@
 # @taxo/sri-xml-2-json
 
+## 1.7.1
+
+### Patch Changes
+
+- a22854c: fix debit note
+
 ## 1.6.2
 
 ### Patch Changes
