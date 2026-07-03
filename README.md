@@ -3,13 +3,13 @@
 ### Installation
 
 ```bash
-$ npm install sri-xml-2-json
+$ npm install taxo-sri-xml-2-json
 ```
 
 ### Usage
 
 ```javascript
-import { Ride } from "sri-xml-2-json";
+import { Ride } from "taxo-sri-xml-2-json";
 const xmlDocument = "<xml>...</xml>";
 const ride = new Ride(xmlDocument);
 ```
