@@ -17,6 +17,8 @@ export const transformTaxesPercentage: Record<string, string> = {
   '0': '0%',
   '2': '12%',
   '3': '14%',
+  '4': '15%',
+  '5': '5%',
   '6': 'NO OBJETO DE IMPUESTO',
   '7': 'EXENTO DE IVA',
   '8': 'IVA DIFERENCIADO',

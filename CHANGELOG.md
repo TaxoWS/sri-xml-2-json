@@ -1,5 +1,12 @@
 # @taxo/sri-xml-2-json
 
+## 1.7.1
+
+### Patch Changes
+
+- a22854c: fix debit note
+- fix: evita crash `Cannot read properties of undefined (reading 'codigo')` en `mappingProducts` (notas de crédito y liquidaciones) y en `BillDocument.transformProducts` (facturas) cuando un `<detalle>` no trae `<impuesto>`, viene vacío/self-closing, o trae múltiples impuestos (array). Además agrega el mapeo de IVA 15% (`codigoPorcentaje` `"4"`) y tarifa 5% (`"5"`) a `transformTaxesPercentage`.
+
 ## 1.6.2
 
 ### Patch Changes

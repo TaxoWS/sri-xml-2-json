@@ -1,7 +1,7 @@
 {
-  "name": "sri-xml-2-json",
-  "version": "1.7.0",
-  "description": "",
+  "name": "taxo-sri-xml-2-json",
+  "version": "1.7.1",
+  "description": "Parser XML a JSON para comprobantes electrónicos SRI (Ecuador)",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

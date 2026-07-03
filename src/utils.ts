@@ -112,16 +112,21 @@ export const mappingProducts = (details: any) => {
   // map products
 
   return detalle.map((item: any) => {
-    const { impuesto } = item.impuestos;
+    // `impuesto` puede faltar, ser un objeto único, o un array (múltiples
+    // impuestos por ítem). Se toma el primero, consistente con `mapTaxInfo`.
+    const rawImpuesto = item?.impuestos?.impuesto;
+    const impuesto = Array.isArray(rawImpuesto) ? rawImpuesto[0] : rawImpuesto;
     // Parse numbers in the item
     const parsedItem = parseNumberInObject(item);
     // Transform tax information
-    const taxInfo = {
-      ...impuesto,
-      [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
-      [billPropertyMap.percentage]:
-        transformTaxesPercentage[impuesto.codigoPorcentaje],
-    };
+    const taxInfo = impuesto
+      ? {
+          ...impuesto,
+          [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
+          [billPropertyMap.percentage]:
+            transformTaxesPercentage[impuesto.codigoPorcentaje],
+        }
+      : {}; // ítem sin impuesto detallado → sin taxInfo (en vez de crashear)
 
     return {
       ...item,

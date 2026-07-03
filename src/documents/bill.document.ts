@@ -127,16 +127,21 @@ export class BillDocument implements IDocument {
 
     // Mapear productos
     return detalle.map((item: any) => {
-      const { impuesto } = item.impuestos;
+      // `impuesto` puede faltar, ser un objeto único, o un array (múltiples
+      // impuestos por ítem). Se toma el primero.
+      const rawImpuesto = item?.impuestos?.impuesto;
+      const impuesto = Array.isArray(rawImpuesto) ? rawImpuesto[0] : rawImpuesto;
       // Parsear números en el producto
       const parsedItem = parseNumberInObject(item);
       // Transformar información de impuestos
-      const taxInfo = {
-        ...impuesto,
-        [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
-        [billPropertyMap.percentage]:
-          transformTaxesPercentage[impuesto.codigoPorcentaje],
-      };
+      const taxInfo = impuesto
+        ? {
+            ...impuesto,
+            [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
+            [billPropertyMap.percentage]:
+              transformTaxesPercentage[impuesto.codigoPorcentaje],
+          }
+        : {}; // ítem sin impuesto detallado → sin taxInfo (en vez de crashear)
 
       return {
         ...item,
