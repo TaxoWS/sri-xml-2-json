@@ -114,6 +114,54 @@ console.log(jsonString);
 }
 ```
 
+## Product taxes (`productos[].impuestos`)
+
+The shape of `impuestos` mirrors the XML: the SRI sends a single `<impuesto>` as one
+node and several (e.g. ICE + IVA, common in telecommunications) as repeated nodes.
+
+| Item has | `impuestos` is |
+| --- | --- |
+| one tax | an **object** (as shown in the example above) |
+| several taxes | an **array** of those objects |
+| no tax node | an empty object `{}` |
+
+Handle both shapes when a document may carry multi-tax items:
+
+```javascript
+const taxes = Array.isArray(producto.impuestos)
+  ? producto.impuestos
+  : [producto.impuestos];
+
+const iva = taxes.find((t) => t.nombre === "IVA");
+```
+
+Example of an item taxed with ICE and IVA:
+
+```json
+"impuestos": [
+  {
+    "codigo": 3,
+    "codigoPorcentaje": 3093,
+    "tarifa": 0,
+    "baseImponible": 0,
+    "valor": 0,
+    "nombre": "ICE"
+  },
+  {
+    "codigo": 2,
+    "codigoPorcentaje": 4,
+    "tarifa": 15,
+    "baseImponible": 5250,
+    "valor": 787.5,
+    "nombre": "IVA",
+    "porcentaje": "15%"
+  }
+]
+```
+
+> `infoDocumento.totalImpuestos` is always an array, regardless of how many taxes
+> the document carries.
+
 # MIT License
 
 Copyright (c) 2024 - TAXO

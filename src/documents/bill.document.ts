@@ -12,6 +12,7 @@ import {
   transformTypeIdentification,
 } from '../mapping';
 import {
+  mapProductTaxes,
   mappingExtraInfo,
   parseNumberInObject,
   removeUnwantedProperties,
@@ -127,21 +128,10 @@ export class BillDocument implements IDocument {
 
     // Mapear productos
     return detalle.map((item: any) => {
-      // `impuesto` puede faltar, ser un objeto único, o un array (múltiples
-      // impuestos por ítem). Se toma el primero.
-      const rawImpuesto = item?.impuestos?.impuesto;
-      const impuesto = Array.isArray(rawImpuesto) ? rawImpuesto[0] : rawImpuesto;
       // Parsear números en el producto
       const parsedItem = parseNumberInObject(item);
       // Transformar información de impuestos
-      const taxInfo = impuesto
-        ? {
-            ...impuesto,
-            [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
-            [billPropertyMap.percentage]:
-              transformTaxesPercentage[impuesto.codigoPorcentaje],
-          }
-        : {}; // ítem sin impuesto detallado → sin taxInfo (en vez de crashear)
+      const taxInfo = mapProductTaxes(item);
 
       return {
         ...item,

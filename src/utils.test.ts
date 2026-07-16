@@ -52,15 +52,17 @@ describe('mappingProducts', () => {
     expect(producto.impuestos).toEqual({});
   });
 
-  it('takes the first tax when an item has multiple impuestos (array)', () => {
+  it('keeps every tax when an item has multiple impuestos (ICE + IVA)', () => {
+    // Caso real: factura CNT con ICE (valor 0) e IVA 15% (valor 787.50).
+    // El IVA no debe perderse por venir en segundo lugar.
     const details = {
       detalle: {
-        descripcion: 'PRODUCTO MULTI IMPUESTO',
-        precioTotalSinImpuesto: '10.00',
+        descripcion: 'SWAN IF 90CA 256K JAVAUSIM0701 *',
+        precioTotalSinImpuesto: '5250.00',
         impuestos: {
           impuesto: [
-            { codigo: '2', codigoPorcentaje: '4', baseImponible: '10.00', valor: '1.50' },
-            { codigo: '3', codigoPorcentaje: '3', baseImponible: '10.00', valor: '1.40' },
+            { codigo: '3', codigoPorcentaje: '3093', baseImponible: '0.00', valor: '0.00' },
+            { codigo: '2', codigoPorcentaje: '4', baseImponible: '5250.00', valor: '787.50' },
           ],
         },
       },
@@ -68,9 +70,15 @@ describe('mappingProducts', () => {
 
     const [producto] = mappingProducts(details);
 
-    expect(producto.impuestos.codigo).toBe(2);
-    expect(producto.impuestos.nombre).toBe('IVA');
-    expect(producto.impuestos.porcentaje).toBe('15%');
+    expect(Array.isArray(producto.impuestos)).toBe(true);
+    expect(producto.impuestos).toHaveLength(2);
+
+    expect(producto.impuestos[0].nombre).toBe('ICE');
+    expect(producto.impuestos[0].valor).toBe(0);
+
+    expect(producto.impuestos[1].nombre).toBe('IVA');
+    expect(producto.impuestos[1].porcentaje).toBe('15%');
+    expect(producto.impuestos[1].valor).toBe(787.5);
   });
 
   it('maps IVA 15% (codigoPorcentaje "4")', () => {

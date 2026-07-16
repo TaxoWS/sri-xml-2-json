@@ -104,6 +104,28 @@ export const mappingTaxes = (taxes: any) => {
   return newTaxes;
 };
 
+const mapSingleTax = (impuesto: any) => ({
+  ...impuesto,
+  [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
+  [billPropertyMap.percentage]:
+    transformTaxesPercentage[impuesto.codigoPorcentaje],
+});
+
+/**
+ * Impuestos de un `<detalle>`. El SRI envía un `<impuesto>` único como objeto y
+ * varios (p. ej. ICE + IVA) como array; el nodo puede además faltar o venir
+ * vacío. Se conserva la forma de entrada: objeto para uno, array para varios,
+ * `{}` cuando no hay impuesto detallado.
+ */
+export const mapProductTaxes = (item: any) => {
+  const rawImpuesto = item?.impuestos?.impuesto;
+  if (!rawImpuesto) return {};
+
+  return Array.isArray(rawImpuesto)
+    ? rawImpuesto.map(mapSingleTax)
+    : mapSingleTax(rawImpuesto);
+};
+
 export const mappingProducts = (details: any) => {
   const detalle = Array.isArray(details.detalle)
     ? details.detalle
@@ -112,21 +134,10 @@ export const mappingProducts = (details: any) => {
   // map products
 
   return detalle.map((item: any) => {
-    // `impuesto` puede faltar, ser un objeto único, o un array (múltiples
-    // impuestos por ítem). Se toma el primero, consistente con `mapTaxInfo`.
-    const rawImpuesto = item?.impuestos?.impuesto;
-    const impuesto = Array.isArray(rawImpuesto) ? rawImpuesto[0] : rawImpuesto;
     // Parse numbers in the item
     const parsedItem = parseNumberInObject(item);
     // Transform tax information
-    const taxInfo = impuesto
-      ? {
-          ...impuesto,
-          [billPropertyMap.name]: transformTaxesName[impuesto.codigo],
-          [billPropertyMap.percentage]:
-            transformTaxesPercentage[impuesto.codigoPorcentaje],
-        }
-      : {}; // ítem sin impuesto detallado → sin taxInfo (en vez de crashear)
+    const taxInfo = mapProductTaxes(item);
 
     return {
       ...item,

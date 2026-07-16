@@ -1,5 +1,17 @@
 # @taxo/sri-xml-2-json
 
+## 1.8.0
+
+### Minor Changes
+
+- fix: conserva todos los impuestos de un `<detalle>` en lugar de descartar todos menos el primero.
+
+  Cuando un ítem trae varios `<impuesto>` (p. ej. ICE + IVA, habitual en telecomunicaciones), la librería solo devolvía el primero y perdía silenciosamente el resto — en una factura CNT el producto quedaba con el ICE en 0 y se descartaba el IVA 15% de $787.50.
+
+  `productos[].impuestos` ahora conserva la forma de entrada: objeto cuando hay un solo impuesto (sin cambios respecto de versiones anteriores), **array cuando hay varios**, y `{}` cuando el ítem no trae impuesto detallado. Los consumidores que necesiten soportar ítems multi-impuesto deben ramificar con `Array.isArray(producto.impuestos)`.
+
+  Internamente se extrae el helper `mapProductTaxes`, eliminando la lógica duplicada entre `mappingProducts` y `BillDocument.transformProducts`.
+
 ## 1.7.1
 
 ### Patch Changes
