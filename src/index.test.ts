@@ -105,6 +105,33 @@ describe('sri-xml-2-json', () => {
       expect(responseParsed.productos[1].precioUnitario).toBe(22.97);
       expect(responseParsed.productos[2].precioUnitario).toBe(1.03);
     });
+
+    it('keeps detallesAdicionales exactly as in the XML (strings, no number parsing)', async () => {
+      const ride = new Ride(fixtures.BILL_ADDITIONAL_DETAILS);
+      const result = JSON.parse(await ride.convertToJson());
+      const [conUnDetalle, conVariosDetalles, sinDetalles] = result.productos;
+
+      // Un solo <detAdicional>: se mantiene como objeto.
+      expect(conUnDetalle.detallesAdicionales).toEqual({
+        detAdicional: { $: { nombre: 'DetalleEX', valor: '356938035643809' } },
+      });
+
+      // Varios <detAdicional>: array en el orden del XML, todo como string.
+      expect(conVariosDetalles.detallesAdicionales.detAdicional).toEqual([
+        { $: { nombre: 'imei', valor: '490154203237518' } },
+        { $: { nombre: 'detalle2', valor: '10001-MODELO-B-X100' } },
+        { $: { nombre: 'RUC Proveedor', valor: '0990000000001' } },
+        { $: { nombre: 'Valor', valor: '166.00' } },
+      ]);
+
+      // Ítem sin detalles adicionales: la propiedad no existe.
+      expect(sinDetalles).not.toHaveProperty('detallesAdicionales');
+
+      // El resto del ítem se sigue convirtiendo a número como antes.
+      expect(conUnDetalle.precioTotalSinImpuesto).toBe(200);
+      expect(conUnDetalle.cantidad).toBe(1);
+      expect(conVariosDetalles.impuestos.valor).toBe(22.5);
+    });
   });
   describe('CREDITS NOTES', () => {
     it('should convert credit note document', async () => {

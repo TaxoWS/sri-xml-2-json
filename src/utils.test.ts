@@ -123,4 +123,44 @@ describe('mappingProducts', () => {
     expect(productos[0].impuestos.nombre).toBe('IVA');
     expect(productos[1].impuestos).toEqual({});
   });
+
+  it('keeps detallesAdicionales as raw strings (credit notes / settlements path)', () => {
+    const details = {
+      detalle: [
+        {
+          descripcion: 'CON UN DETALLE',
+          precioTotalSinImpuesto: '10.00',
+          detallesAdicionales: {
+            detAdicional: { $: { nombre: 'Lote', valor: '4544' } },
+          },
+          impuestos: { impuesto: { codigo: '2', codigoPorcentaje: '4', valor: '1.50' } },
+        },
+        {
+          descripcion: 'CON VARIOS DETALLES',
+          precioTotalSinImpuesto: '20.00',
+          detallesAdicionales: {
+            detAdicional: [
+              { $: { nombre: 'Descuento', valor: '33.30' } },
+              { $: { nombre: 'Boni', valor: '0' } },
+              { $: { nombre: '1', valor: '0012' } },
+            ],
+          },
+          impuestos: { impuesto: { codigo: '2', codigoPorcentaje: '4', valor: '3.00' } },
+        },
+      ],
+    };
+
+    const [uno, varios] = mappingProducts(details);
+
+    expect(uno.detallesAdicionales.detAdicional.$).toEqual({ nombre: 'Lote', valor: '4544' });
+    expect(varios.detallesAdicionales.detAdicional).toEqual([
+      { $: { nombre: 'Descuento', valor: '33.30' } },
+      { $: { nombre: 'Boni', valor: '0' } },
+      { $: { nombre: '1', valor: '0012' } },
+    ]);
+
+    // Fuera de detallesAdicionales la conversión numérica no cambia.
+    expect(uno.precioTotalSinImpuesto).toBe(10);
+    expect(varios.impuestos.valor).toBe(3);
+  });
 });
