@@ -13,8 +13,16 @@ const FORMAT_NUMERIC_EXPECT = /^(0|0\.\d+|[1-9]\d*(\.\d+)?)$/;
 export const parseNumberInObject = (obj: any) => {
   // Campos que deben mantenerse como string para evitar problemas de precisión numérica
   const STRING_FIELDS = ['numAutDocSustento', 'claveAcceso'];
+  // Subárboles que se devuelven tal cual vienen en el XML, sin convertir a número.
+  // `detallesAdicionales` trae texto libre del emisor (IMEI, series, códigos
+  // internos): convertirlo perdía decimales ("166.00" → 166) y volvía el tipo
+  // impredecible (número o string según el contenido).
+  const RAW_SUBTREES = ['detallesAdicionales'];
 
   Object.keys(obj).forEach((key) => {
+    if (RAW_SUBTREES.includes(key)) {
+      return;
+    }
     if (typeof obj[key] === 'object') {
       parseNumberInObject(obj[key]);
     } else {
